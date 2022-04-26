@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/background_color" />
+
+    <View
+        android:id="@+id/view_filter"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_filter" />
+
+    <TextView
+        android:id="@+id/tv_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_marginTop="26dp"
+        android:text="@string/index"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        tools:text="Index" />
+
+    <View
+        android:id="@+id/view_avt"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="39dp"
+        android:background="@drawable/ic_avt" />
+
+    <View
+        android:id="@+id/view_img"
+        android:layout_width="227dp"
+        android:layout_height="227dp"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_marginTop="147dp"
+        android:layout_marginBottom="411dp"
+        android:background="@drawable/ic_checklist_rafiki_1" />
+
+    <TextView
+        android:id="@+id/tv_what"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:text="@string/what_do_you_want_today"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="440dp"
+        android:text="@string/tap_to_add_your_tasks"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view_add"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|top"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/ic_add"
+        android:translationZ="90dp"
+        android:visibility="visible" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/view_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:background="#363636">
+
+        <View
+            android:id="@+id/view_index"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/tv_index_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/index"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_calender"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_calendar" />
+
+        <TextView
+            android:id="@+id/tv_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/calender"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_note"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_note" />
+
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="113dp"
+            android:text="@string/note"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_user"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/calender"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+</RelativeLayout>
