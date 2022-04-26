@@ -4,17 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/back_xml.xml" value="0.2115" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/btn_color.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/ic_divider.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/ic_group_156.xml" value="0.1" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/ic_vector.xml" value="0.1" />
-        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.21" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.22" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.1287568306010929" />
-        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.12" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.18" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/drawable/ic_group_156.xml" value="0.2115" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.15" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.14" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/layout/start_layout2.xml" value="0.14" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp_Mobile/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.15" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/btn_color.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_apple.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_divider.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_google.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.22" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.11099726775956284" />
       </map>
     </option>
   </component>
