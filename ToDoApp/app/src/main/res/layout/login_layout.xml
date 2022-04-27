@@ -102,7 +102,7 @@
         android:textColor="@color/white"
         android:textColorHint="#6AF1ECEA" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         android:layout_marginEnd="37dp"
         android:background="@drawable/ic_divider" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_gg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
         android:textSize="18sp"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_apple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

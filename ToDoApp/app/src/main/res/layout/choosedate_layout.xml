@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="327dp"
+        android:layout_height="370dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/textbox_layout"
+        android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+    <Button
+        android:id="@+id/btn_choosetime"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/btn_color"
+        android:text="@string/choose_time"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/btn_color"
+        android:text="@string/cancel"
+        android:textSize="14sp" />
+
+</RelativeLayout>
