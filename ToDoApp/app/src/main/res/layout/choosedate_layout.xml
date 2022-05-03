@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -13,24 +13,27 @@
         android:background="@drawable/textbox_layout"
         android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
-    <Button
-        android:id="@+id/btn_choosetime"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
         android:layout_width="140dp"
         android:layout_height="48dp"
-        android:layout_marginStart="215dp"
+        android:layout_marginStart="180dp"
         android:layout_marginTop="310dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/btn_color"
+        android:textAllCaps="false"
         android:text="@string/choose_time"
         android:textSize="14sp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_cancel"
         android:layout_width="140dp"
         android:layout_height="48dp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="310dp"
         android:background="@drawable/btn_color"
         android:text="@string/cancel"
+        android:textAllCaps="false"
         android:textSize="14sp" />
 
 </RelativeLayout>

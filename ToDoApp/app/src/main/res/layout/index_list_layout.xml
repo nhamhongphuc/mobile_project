@@ -42,42 +42,6 @@
         android:background="@drawable/ic_avt" />
 
     <View
-        android:id="@+id/view_img"
-        android:layout_width="227dp"
-        android:layout_height="227dp"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_marginTop="147dp"
-        android:layout_marginBottom="411dp"
-        android:background="@drawable/ic_checklist_rafiki_1" />
-
-    <TextView
-        android:id="@+id/tv_what"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:text="@string/what_do_you_want_today"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
-
-    <TextView
-        android:id="@+id/tv_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="false"
-        android:layout_centerInParent="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="440dp"
-        android:text="@string/tap_to_add_your_tasks"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
-
-    <View
         android:id="@+id/view_add"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -175,4 +139,34 @@
             android:textSize="18sp" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/tv_index"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:autofillHints=""
+        android:background="@drawable/back_xml"
+        android:drawableStart="@drawable/ic_search_normal"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/search_for_your_task"
+        android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/lv_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_navbar"
+        android:layout_below="@id/search_bar"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="45dp" />
+
 </RelativeLayout>
