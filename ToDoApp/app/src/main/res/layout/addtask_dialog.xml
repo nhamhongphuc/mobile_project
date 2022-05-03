@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center">
-
-    <View
-        android:id="@+id/view_all"
-        android:layout_width="wrap_content"
-        android:layout_height="230dp"
-        android:background="@drawable/dialog_color" />
+    android:layout_height="255dp"
+    android:layout_gravity="center"
+    android:background="@drawable/dialog_color">
 
     <TextView
         android:id="@+id/textView4"
@@ -30,6 +25,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
+        android:autofillHints=""
         android:background="@drawable/textbox_layout"
         android:ems="10"
         android:hint="@string/enter_title"
@@ -38,8 +34,7 @@
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:autofillHints="" />
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/ed_description"
