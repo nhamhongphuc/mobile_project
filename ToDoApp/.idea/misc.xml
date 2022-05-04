@@ -22,6 +22,7 @@
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/calendar_today_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaaccountimage_layout.xml" value="0.36302083333333335" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaccountname_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaccountpassword_layout.xml" value="0.36666666666666664" />
@@ -29,6 +30,9 @@
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosedate_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosepriority.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosetime_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_date_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_priority.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_time_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/index_list_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.36666666666666664" />
