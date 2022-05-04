@@ -3,27 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="@color/black">
 
     <TextView
-        android:id="@+id/tv_changeapptypography3"
+        android:id="@+id/tv_importfromgooglecalendar"
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_import"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="43dp"
-        android:drawableStart="@drawable/ic_resource_import"
         android:drawableEnd="@drawable/ic_arrow_right"
         android:text="  Import from Google Calendar"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:drawableStartCompat="@drawable/ic_resource_import" />
 
     <TextView
         android:id="@+id/tv_import"
         android:layout_width="94dp"
         android:layout_height="51dp"
-        android:layout_below="@+id/tv_changeapptypography2"
+        android:layout_below="@+id/tv_changeapplanguage"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="32dp"
         android:layout_toStartOf="@+id/tv_settings"
@@ -33,7 +33,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tv_changeapptypography2"
+        android:id="@+id/tv_changeapplanguage"
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_changeapptypography"
@@ -42,7 +42,7 @@
         android:layout_marginEnd="43dp"
         android:drawableStart="@drawable/ic_language_square"
         android:drawableEnd="@drawable/ic_arrow_right"
-        android:text="  Change app typography"
+        android:text="  Change app language"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
