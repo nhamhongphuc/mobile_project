@@ -4,6 +4,8 @@ package com.example.todoapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity {
     private View back;
     private TextView tv_Register;
-    private DatabaseHelper database;
-    
+    private EditText mail, pass;
+    private Button btnlogin;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,9 @@ public class LoginActivity extends AppCompatActivity {
 
         back = (View) this.findViewById(R.id.view_back);
         tv_Register = (TextView) this.findViewById(R.id.tv_login) ;
-
+        mail = (EditText)this.findViewById(R.id.ed_username) ;
+        pass = (EditText)this.findViewById(R.id.ed_password);
+        btnlogin=(Button) this.findViewById(R.id.btn_login);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +38,13 @@ public class LoginActivity extends AppCompatActivity {
                 ToRegister();
             }
         });
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleLogin(mail.getText().toString(), pass.getText().toString());
+            }
+        });
     }
     private void GoBackToWelcome() {
         Intent intent = new Intent(this, MainActivity.class);
@@ -42,6 +53,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void ToRegister() {
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    private void handleLogin(String mail, String pass){
+        Intent intent = new Intent(this, EmailPasswordActivity.class);
+        intent.putExtra("email", mail);
+        intent.putExtra("pass", pass);
+        intent.putExtra("src","login");
+
         startActivity(intent);
     }
 }

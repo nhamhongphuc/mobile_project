@@ -2,15 +2,10 @@ package com.example.todoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private View add;
@@ -84,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void buttonRegister() {
         Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);    }
+        startActivity(intent);
+    }
 
 
 }

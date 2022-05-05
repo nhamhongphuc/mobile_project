@@ -3,44 +3,47 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/back_xml.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/btn_color.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/btn_color1.xml" value="0.1765" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/btn_color_gray.xml" value="0.1635" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/btn_create_category.xml" value="0.1765" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_avt.xml" value="0.1945" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_calendar.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_divider.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_ellipse_16.xml" value="0.1765" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_ellipse_17.xml" value="0.1765" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_flag.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_google.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_grocery.xml" value="0.1765" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_home.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_search_normal.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_send.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_user.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/drawable/ic_vector.xml" value="0.145" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/a.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/addcategory_layout.xml" value="0.16" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/choosecategory_layout.xml" value="0.22" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/choosedate_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/choosepriority.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/choosetime_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/create_new_category.xml" value="0.14" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/editcategory_layout.xml" value="0.22" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/index_list_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/register_layout.xml" value="0.209375" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/setting_layout.xml" value="0.13958333333333334" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.1743659420289855" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/task_item_layout.xml" value="0.1743659420289855" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/taskcreen_layout.xml" value="0.16" />
-        <entry key="..\:/UIT/Nam 3/HK2/Mobile/project/mobile_project/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.1743659420289855" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable-v24/back_purple_xml.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/back_xml.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/btn_color.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/btn_colorgrey.xml" value="0.167" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/btn_colorwhite.xml" value="0.167" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/changeaccountimage_layout.xml" value="0.167" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/dialog_color.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_add.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_apple.xml" value="0.167" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_arrow_left.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_avt.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_brush.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_divider_2.xml" value="0.167" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_google.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_group_156.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_home.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/calendar_today_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaaccountimage_layout.xml" value="0.36302083333333335" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaccountname_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changaccountpassword_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/changeaccountimage_layout.xml" value="0.36302083333333335" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosedate_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosepriority.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/choosetime_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_date_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_priority.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/edit_time_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/index_list_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/profile_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/register_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/setting_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/task_item_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/taskpriority_layout.xml" value="0.36302083333333335" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/0. UIT/Nam 3/HK2/Mobile App/DoAn/Tuan/ToDoApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/back_xml.xml" value="0.2115" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/btn_color.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/ToDoApp/app/src/main/res/drawable/ic_divider.xml" value="0.166" />
@@ -62,27 +65,37 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/dialog_color.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_add.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_apple.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_arrow_left.xml" value="0.156" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_arrow_right.xml" value="0.156" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_avt.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_calendar.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_checklist_rafiki_1.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_divider.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_divider_2.xml" value="0.165" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_google.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_home.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_note.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_send.xml" value="0.156" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_vector.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/radio_btn_color.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/textbox_layout.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.11099726775956284" />
-        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.14" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addcategory_layout.xml" value="0.1287568306010929" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.2" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/changaccountpassword_layout.xml" value="0.10621584699453553" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/changeaccountimage_layout.xml" value="0.10621584699453553" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/choosedate_layout.xml" value="0.2" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/choosepriority.xml" value="0.25" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/choosetime_layout.xml" value="0.18" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_date_layout.xml" value="0.10621584699453553" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/editcategory_layout.xml" value="0.1287568306010929" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.14" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/index_list_layout.xml" value="0.17" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/login_layout.xml" value="0.18" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/register_layout.xml" value="0.16" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/start_layout.xml" value="0.11099726775956284" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/task_item_layout.xml" value="0.2" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/taskcreen_layout.xml" value="0.2" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/theme_datepicker.xml" value="0.10621584699453553" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/theme_timepicker.xml" value="0.10621584699453553" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.10621584699453553" />
