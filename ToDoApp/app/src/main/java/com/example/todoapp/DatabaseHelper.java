@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super.close();
     }
 
-    //Truy van khon tra kq
+    //Truy van khong tra kq
     public void queryData(String sql)
     {
         SQLiteDatabase db = getWritableDatabase();
