@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="346dp"
+        android:layout_height="210dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="315dp"
+        android:background="#595959" />
+
+    <EditText
+        android:id="@+id/tv_nameafterchange"
+        android:layout_width="324dp"
+        android:layout_height="48dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignBottom="@+id/view2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="93dp"
+        android:autofillHints=""
+        android:background="@drawable/back_xml"
+        android:ems="10"
+        android:focusable="auto"
+        android:hint="New Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="#6AF1ECEA"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tv_changeaccountpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignEnd="@+id/view2"
+        android:layout_alignBottom="@+id/view2"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="168dp"
+        android:outlineProvider="none"
+        android:singleLine="false"
+        android:text="Change account name"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="164dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignEnd="@+id/view2"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="183dp"
+        android:background="@drawable/btn_colorgrey"
+        android:text="Cancel"
+        android:textColor="#8687E7"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_edit"
+        android:layout_width="164dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignEnd="@+id/view2"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/btn_color"
+        android:text="Edit" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="280dp"
+        android:layout_height="3dp"
+        android:layout_alignStart="@+id/tv_nameafterchange"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignEnd="@+id/view2"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_divider_2" />
+
+</RelativeLayout>

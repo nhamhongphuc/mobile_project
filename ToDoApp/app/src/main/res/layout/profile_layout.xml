@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="false"
+    android:background="@color/black">
+
+    <View
+        android:id="@+id/view_add2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/view_navbar"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="610dp"
+        android:layout_marginBottom="-33dp"
+        android:background="@drawable/ic_add"
+        android:translationZ="90dp"
+        android:visibility="visible" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/view_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/nav_color">
+
+        <View
+            android:id="@+id/view_index"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/tv_index_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/index"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_calender"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_calendar" />
+
+        <TextView
+            android:id="@+id/tv_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/calender"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_note"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_note" />
+
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="113dp"
+            android:text="@string/note"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_user"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/calender"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <TextView
+        android:id="@+id/tv_supportus"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_helpandfeedback"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_like"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Support US"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_FAQ2"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_aboutus"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_info_circle"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  FAQ"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_Logout"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_supportus"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Log out"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_helpandfeedback"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_FAQ2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_flash"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Help and Feedback"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_aboutus"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_justdoit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="50dp"
+        android:drawableStart="@drawable/ic_menu"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  About US"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_justdoit"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_changeaccountimage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="304dp"
+        android:alpha="0.5"
+        android:text="Justdoit"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_changeaccountimage"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_changaccountpassword"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="55dp"
+        android:drawableStart="@drawable/ic_camera"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Change account Image"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_changaccountpassword"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_changeaccountname"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="54dp"
+        android:drawableStart="@drawable/ic_key"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Change account password"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_changeaccountname"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_Account"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="55dp"
+        android:drawableStart="@drawable/ic_user"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  Change account name"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_Account"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_appsetting"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="302dp"
+        android:alpha="0.5"
+        android:text="Account"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_appsetting"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_settings3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="56dp"
+        android:drawableStart="@drawable/ic_setting_2"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="  App Settings"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_settings3"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_taskleft"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="299dp"
+        android:alpha="0.5"
+        android:text="Settings"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_taskdone"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="222dp"
+        android:layout_marginTop="15dp"
+        android:background="#363636"
+        android:paddingTop="10dp"
+        android:text="5 Task done"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Profile"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="62dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tv_profile"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Martha Hays"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_taskleft"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="15dp"
+        android:background="#363636"
+        android:paddingTop="10dp"
+        android:text="10 Task left"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout>

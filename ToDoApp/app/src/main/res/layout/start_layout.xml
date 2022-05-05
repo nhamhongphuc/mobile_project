@@ -10,4 +10,5 @@
         android:layout_height="172dp"
         android:layout_centerInParent="true"
         android:background="@drawable/ic_group_156" />
+
 </RelativeLayout>
