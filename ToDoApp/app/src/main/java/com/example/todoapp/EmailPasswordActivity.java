@@ -8,11 +8,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.todoapp.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class EmailPasswordActivity extends Activity {
 
@@ -21,6 +24,8 @@ public class EmailPasswordActivity extends Activity {
     private FirebaseAuth mAuth;
     // [END declare_auth]
 
+    private String email;
+    private String pass;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,8 @@ public class EmailPasswordActivity extends Activity {
         else {
             signIn(email,pass);
         }
+
+
     }
 
     // [START on_start_check_user]
@@ -63,8 +70,20 @@ public class EmailPasswordActivity extends Activity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+
+                            DatabaseReference mDatabase = FirebaseDatabase
+                                    .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                                    .getReference("users");
+
+                            // creating user obje1ct
+                            User user_info = new User(email, password, "default");
+
+                            // pushing user to 'users' node using the userId
+                            mDatabase.child(user.getUid()).setValue(user_info);
+
+                            
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            intent.putExtra("email", email);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

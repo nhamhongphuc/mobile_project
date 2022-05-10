@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,11 +21,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
+
         back = (View) this.findViewById(R.id.view_back);
         tv_Register = (TextView) this.findViewById(R.id.tv_login) ;
         mail = (EditText)this.findViewById(R.id.ed_username) ;
         pass = (EditText)this.findViewById(R.id.ed_password);
         btnlogin=(Button) this.findViewById(R.id.btn_login);
+
+
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            String email = data.getString("email");
+            if (!email.equals("")) {
+                mail.setText(email);
+                pass.requestFocus();
+            }
+            Toast.makeText(getApplicationContext(), "Account created successfully", Toast.LENGTH_LONG).show();
+        }
+
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
