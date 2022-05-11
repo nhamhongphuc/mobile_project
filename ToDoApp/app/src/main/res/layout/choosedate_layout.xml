@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true">
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="327dp"
+        android:layout_width="match_parent"
         android:layout_height="370dp"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/textbox_layout"
         android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
@@ -21,8 +22,8 @@
         android:layout_marginTop="310dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/btn_color"
-        android:textAllCaps="false"
         android:text="@string/choose_time"
+        android:textAllCaps="false"
         android:textSize="14sp" />
 
     <androidx.appcompat.widget.AppCompatButton
