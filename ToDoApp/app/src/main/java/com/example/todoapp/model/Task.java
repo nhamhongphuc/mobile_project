@@ -5,6 +5,7 @@ import static java.text.DateFormat.getDateTimeInstance;
 import com.google.firebase.database.ServerValue;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,8 @@ public class Task {
     private String description;
     private boolean isCompleted;
     private int priority;
-    private Map<String, String> date;
+    private String startDate;
+    private String endDate;
 
 
     public Task() {
@@ -23,16 +25,19 @@ public class Task {
     public Task(String title, String description) {
         this.title = title;
         this.description = description;
-        this.date = new HashMap();
-        this.date.put("createdDate", String.valueOf(ServerValue.TIMESTAMP));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        this.startDate = dateFormat.format(date).toString();
+
     }
 
-    public Task(String title, String description, boolean isCompleted, int priority, Map<String, String> date) {
+    public Task(String title, String description, boolean isCompleted, int priority, String startDate, String endDate) {
         this.title = title;
         this.description = description;
         this.isCompleted = isCompleted;
         this.priority = priority;
-        this.date = date;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public String getTitle() {
@@ -67,21 +72,21 @@ public class Task {
         this.priority = priority;
     }
 
-    public Map<String, String> getDate() {
-        return date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setDate(Map<String, String> date) {
-        this.date = date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public static String getTimeDate(long timestamp){
-        try{
-            DateFormat dateFormat = getDateTimeInstance();
-            Date netDate = (new Date(timestamp));
-            return dateFormat.format(netDate);
-        } catch(Exception e) {
-            return "date";
-        }
+    public String getEndDate() {
+        return endDate;
     }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+
 }

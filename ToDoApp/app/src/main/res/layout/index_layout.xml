@@ -175,4 +175,38 @@
             android:textSize="18sp" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/tv_index"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:autofillHints=""
+        android:background="@drawable/back_xml"
+        android:drawableStart="@drawable/ic_search_normal"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/search_for_your_task"
+        android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
+    <ListView
+        android:id="@+id/lv_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_navbar"
+        android:layout_below="@id/search_bar"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="53dp"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
 </RelativeLayout>
