@@ -36,7 +36,7 @@ public class choosedate_dialog  extends DialogFragment {
     public CalendarView calendarView;
     public Button btn_choose;
     public Button btn_cancel;
-
+    public String selectedDate;
 
     public static choosedate_dialog newInstance(String data) {
         choosedate_dialog dialog = new choosedate_dialog();
@@ -99,6 +99,13 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     btn_choose = (Button) view.findViewById(R.id.btn_save);
     btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 
+    calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        @Override
+        public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
+            selectedDate = year + "/" + String.format("%02d",(month+1)) + "/" + String.format("%02d",day);
+            Log.d("calendar", String.valueOf(view.getDate()));
+        }
+    });
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,24 +115,8 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
                         .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
                         .getReference("tasks");
 
-                final long[] selectedDate = new long[1];
-                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(year, month, dayOfMonth);
 
-                        view.setDate(calendar.getTimeInMillis());
-                        selectedDate[0] = view.getDate();
-                        Log.d("calendar", String.valueOf(view.getDate()));
-                    }
-                });
-
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-                Date date = new Date(selectedDate[0]);
-                String selectedDate_String = dateFormat.format(date).toString();
-
-                mDatabase.child(user.getUid()).child(data).child("endDate").setValue(selectedDate_String);
+                mDatabase.child(user.getUid()).child(data).child("endDate").setValue(selectedDate);
                 buttonOpenDialogClicked_Priority(data);
                 getDialog().dismiss();
             }
