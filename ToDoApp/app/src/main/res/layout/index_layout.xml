@@ -175,8 +175,7 @@
             android:textSize="18sp" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-<<<<<<< Updated upstream
-=======
+
 
     <EditText
         android:id="@+id/search_bar"
@@ -202,15 +201,17 @@
 
     <ListView
         android:id="@+id/lv_task"
+
         android:layout_width="350dp"
         android:layout_height="match_parent"
         android:layout_above="@id/view_navbar"
         android:layout_below="@id/search_bar"
         android:layout_centerHorizontal="true"
+
         android:layout_marginTop="14dp"
         android:layout_marginBottom="53dp"
         android:visibility="invisible"
         tools:visibility="invisible" />
 
->>>>>>> Stashed changes
+
 </RelativeLayout>

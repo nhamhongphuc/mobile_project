@@ -1,6 +1,7 @@
 package com.example.todoapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -9,38 +10,39 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
 import com.example.todoapp.dialog.AddTask_Dialog;
+import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class IndexActivity extends AppCompatActivity {
     private static final String TAG = "IndexActivity";
     private View add;
-<<<<<<< Updated upstream
-=======
+
     public ArrayList<Task> Tasks;
     private View view_img;
     private TextView tv_what;
     private TextView tv_add;
     private EditText search_bar;
     private ListView lv_task;
->>>>>>> Stashed changes
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_layout);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-<<<<<<< Updated upstream
-        if (user != null) {
-            String name = user.getEmail();
-            String id = user.getUid();
-        }
 
-        add = (View) this.findViewById(R.id.view_add);
-=======
+
 
         view_img = (View) this.findViewById(R.id.view_img);
         tv_what = (TextView) this.findViewById(R.id.tv_what);
@@ -80,34 +82,21 @@ public class IndexActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         add = (View) this.findViewById(R.id.view_add);
         Tasks = null;
->>>>>>> Stashed changes
-
+      
         this.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonOpenDialogClicked();
             }
         });
-
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
     }
 
     private void buttonOpenDialogClicked() {
-        final AddTask_Dialog dialog = new AddTask_Dialog(this);
-
-        dialog.show();
-        Window window = dialog.getWindow();
-        window.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
-
+        FragmentManager fm = getSupportFragmentManager();
+        AddTask_Dialog dialog = new AddTask_Dialog();
+        dialog.show(fm, null);
     }
 
 //    private ArrayList<Task> getListData() {
