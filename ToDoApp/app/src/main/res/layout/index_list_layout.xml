@@ -158,7 +158,9 @@
         android:paddingEnd="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <ListView
         android:id="@+id/lv_task"
@@ -166,7 +168,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/view_navbar"
         android:layout_below="@id/search_bar"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="45dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp" />
 
 </RelativeLayout>

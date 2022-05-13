@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="255dp"
     android:layout_gravity="center"
-    android:background="@drawable/dialog_color">
+    android:background="@drawable/dialog_color"
+    app:layout_constraintHeight_min="255dp">
 
     <TextView
         android:id="@+id/textView4"

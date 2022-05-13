@@ -76,7 +76,7 @@ public class EmailPasswordActivity extends Activity {
                                     .getReference("users");
 
                             // creating user obje1ct
-                            User user_info = new User(email, password, "default");
+                            User user_info = new User(email, "default");
 
                             // pushing user to 'users' node using the userId
                             mDatabase.child(user.getUid()).setValue(user_info);
