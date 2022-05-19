@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/view_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/nav_color">
+
+        <View
+            android:id="@+id/view_index"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_home_2" />
+
+        <TextView
+            android:id="@+id/tv_index_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/index"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_calender"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_calendar_clicked" />
+
+        <TextView
+            android:id="@+id/tv_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="5dp"
+            android:text="Calendar"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_note"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_note" />
+
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="113dp"
+            android:text="@string/note"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view_user"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="350dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/calender"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_completed"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/view7"
+        android:layout_alignBottom="@+id/view7"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="5dp"
+        android:background="#ACA8A8"
+        android:text="Completed"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+
+    <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
+        android:id="@+id/dayDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="533dp"
+        android:background="#787070" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_today"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/view7"
+        android:layout_alignBottom="@+id/view7"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="6dp"
+        android:background="#3F51B5"
+        android:text="Today"
+        android:textAllCaps="false"
+        android:textColor="#fff" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="366dp"
+        android:layout_height="67dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="443dp"
+        android:background="#BFBDBD" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dayDatePicker"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="164dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="22dp"
+        android:text="Calendar"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+
+</RelativeLayout>

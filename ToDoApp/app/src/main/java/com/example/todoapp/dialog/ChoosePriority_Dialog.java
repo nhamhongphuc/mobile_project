@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.todoapp.R;
+import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +39,9 @@ public class ChoosePriority_Dialog extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String data = getArguments().getString("id", "");
+        String title = getArguments().getString("title", "");
+        String desc = getArguments().getString("desc", "");
+        String date = getArguments().getString("date", "");
 
         r1 = (RadioButton) view.findViewById(R.id.radio_1);
         r2 = (RadioButton) view.findViewById(R.id.radio_2);
@@ -90,7 +93,13 @@ public class ChoosePriority_Dialog extends DialogFragment {
                             .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
                             .getReference("tasks");
 
-                    mDatabase.child(user.getUid()).child(data).child("priority").setValue(priority);
+                    String taskId = mDatabase.push().getKey();
+                    Task task = new Task(title, desc);
+                    task.setPriority(priority);
+                    task.setCompleted(false);
+                    task.setEndDate(date);
+
+                    mDatabase.child(user.getUid()).child(taskId).setValue(task);
                     getDialog().dismiss();
                 }
             }

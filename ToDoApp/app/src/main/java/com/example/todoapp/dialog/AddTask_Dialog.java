@@ -33,50 +33,12 @@ public class AddTask_Dialog extends DialogFragment {
     private View view_category;
     private View view_priority;
 
-//    public AddTask_Dialog(Context context) {
-//        super(context);
-//        this.context = context;
-//    }
+
         public AddTask_Dialog() {
 
         }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        setContentView(R.layout.addtask_dialog);
-//
-//
-//        ed_title = (EditText) this.findViewById(R.id.ed_title);
-//        ed_desc = (EditText) this.findViewById(R.id.ed_description);
-//        view_next = (View) this.findViewById(R.id.view_send);
-//
-//
-//        this.view_next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//                DatabaseReference mDatabase = FirebaseDatabase
-//                        .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-//                        .getReference("tasks");
-//
-//                //creating task object
-//                String taskId = mDatabase.push().getKey();
-//                String title = ed_title.getText().toString();
-//                String desc = ed_desc.getText().toString();
-//                Task task = new Task(title, desc);
-//
-//                //String tmp = task.getTimeDate(task.getDate().get("createdDate"));
-//                // pushing task to 'tasks' node using the userId0
-//                mDatabase.child(user.getUid()).child(taskId).setValue(task);
-//
-//
-//                buttonOpenDialogClicked(taskId);
-//            }
-//        });
-//    }
+
 
     @Override
     public void onResume() {
@@ -101,23 +63,11 @@ public class AddTask_Dialog extends DialogFragment {
         this.view_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                DatabaseReference mDatabase = FirebaseDatabase
-                        .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                        .getReference("tasks");
-
-                //creating task object
-                String taskId = mDatabase.push().getKey();
                 String title = ed_title.getText().toString();
                 String desc = ed_desc.getText().toString();
-                Task task = new Task(title, desc);
 
-                //String tmp = task.getTimeDate(task.getDate().get("createdDate"));
-                // pushing task to 'tasks' node using the userId0
-                mDatabase.child(user.getUid()).child(taskId).setValue(task);
 
-                buttonOpenDialogClicked(taskId);
+                buttonOpenDialogClicked(title, desc);
             }
         });
 
@@ -145,12 +95,13 @@ public class AddTask_Dialog extends DialogFragment {
 
 
 
-    private void buttonOpenDialogClicked(String id) {
+    private void buttonOpenDialogClicked(String title, String desc) {
         FragmentManager fm = getFragmentManager ();
         final choosedate_dialog dialog = new choosedate_dialog();
 
         Bundle bundle = new Bundle();
-        bundle.putString("id", id);
+        bundle.putString("title", title);
+        bundle.putString("desc", desc);
         dialog.setArguments(bundle);
         dialog.show(fm, null);
     }
