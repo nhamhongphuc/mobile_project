@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -28,21 +29,17 @@ import java.util.ArrayList;
 public class IndexActivity extends AppCompatActivity {
     private static final String TAG = "IndexActivity";
     private View add;
-
-    public ArrayList<Task> Tasks;
     private View view_img;
     private TextView tv_what;
     private TextView tv_add;
     private EditText search_bar;
     private ListView lv_task;
+    static ArrayList<Task> Tasks = new ArrayList<>();;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_layout);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-
 
         view_img = (View) this.findViewById(R.id.view_img);
         tv_what = (TextView) this.findViewById(R.id.tv_what);
@@ -50,41 +47,15 @@ public class IndexActivity extends AppCompatActivity {
         search_bar = (EditText) this.findViewById(R.id.search_bar);
         lv_task = (ListView) this.findViewById(R.id.lv_task);
 
-        TaskListAdapter adapter = new TaskListAdapter(this, Tasks);
-        lv_task.setAdapter(adapter);
-        Query allTask = FirebaseDatabase
-                .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference()
-                .child("tasks").child(user.getUid());
-        Tasks = null;
-        allTask.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Tasks = new ArrayList<>();
-                for (DataSnapshot item : dataSnapshot.getChildren())
-                {
-                    Task task = item.getValue(Task.class);
-                    Tasks.add(task);
-                }
-                if (Tasks.size() > 0) {
-                    view_img.setVisibility(View.INVISIBLE);
-                    tv_what.setVisibility(View.INVISIBLE);
-                    tv_add.setVisibility(View.INVISIBLE);
-                    search_bar.setVisibility(View.VISIBLE);
-                    lv_task.setVisibility(View.VISIBLE);
-                }
-                adapter.notifyDataSetChanged();
-            }
+        synchronized (this){
+            readData(user, Tasks);
+        }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+
 
         add = (View) this.findViewById(R.id.view_add);
-        Tasks = null;
-      
+
         this.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +70,41 @@ public class IndexActivity extends AppCompatActivity {
         dialog.show(fm, null);
     }
 
-//    private ArrayList<Task> getListData() {
-//
-//    }
+    synchronized void readData(FirebaseUser user, ArrayList<Task> List) {
+        Query allTask = FirebaseDatabase
+                .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("tasks")
+                .child(user.getUid());
+
+        allTask.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Tasks.clear();
+                for (DataSnapshot item : dataSnapshot.getChildren())
+                {
+                    Task task = item.getValue(Task.class);
+                    Log.e(TAG, "onDataChange: "+ task.getTitle(), null );
+                    List.add(task);
+                }
+                if (List.size() > 0) {
+                    view_img.setVisibility(View.INVISIBLE);
+                    tv_what.setVisibility(View.INVISIBLE);
+                    tv_add.setVisibility(View.INVISIBLE);
+                    search_bar.setVisibility(View.VISIBLE);
+                    lv_task.setVisibility(View.VISIBLE);
+                    final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, List);
+                    lv_task.setAdapter(adapter);
+                }
+
+            }
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Read data failed: " + databaseError.getMessage(),null );
+            }
+        });
+    }
+
 }
