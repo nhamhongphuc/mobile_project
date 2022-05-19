@@ -100,6 +100,10 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/theme_datepicker.xml" value="0.10621584699453553" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/theme_timepicker.xml" value="0.10621584699453553" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/welcome_layout.xml" value="0.10621584699453553" />
+        <entry key="..\:/mobile_project/ToDoApp/app/src/main/res/drawable/ic_calendar.xml" value="0.3335" />
+        <entry key="..\:/mobile_project/ToDoApp/app/src/main/res/drawable/ic_calendar_clicked.xml" value="0.3335" />
+        <entry key="..\:/mobile_project/ToDoApp/app/src/main/res/layout/calendar_layout.xml" value="0.23506944444444444" />
+        <entry key="..\:/mobile_project/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.18" />
       </map>
     </option>
   </component>
