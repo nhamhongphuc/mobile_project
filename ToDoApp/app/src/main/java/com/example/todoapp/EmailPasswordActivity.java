@@ -108,7 +108,7 @@ public class EmailPasswordActivity extends Activity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-                            Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), IndexActivity.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -1,9 +1,11 @@
 package com.example.todoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -52,10 +54,23 @@ public class IndexActivity extends AppCompatActivity {
         }
 
 
+        lv_task.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Task task = Tasks.get(i);
 
+                Intent intent = new Intent(getApplicationContext(), TaskScreenActivity.class);
+                intent.putExtra("title", task.getTitle());
+                intent.putExtra("desc", task.getDescription());
+                intent.putExtra("priority", task.getPriority());
+                intent.putExtra("comp", task.isCompleted());
+                intent.putExtra("start", task.getStartDate());
+                intent.putExtra("end", task.getEndDate());
+                startActivity(intent);
+            }
+        });
 
         add = (View) this.findViewById(R.id.view_add);
-
         this.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
