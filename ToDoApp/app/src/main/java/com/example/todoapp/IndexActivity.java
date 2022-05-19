@@ -36,6 +36,7 @@ public class IndexActivity extends AppCompatActivity {
     private TextView tv_add;
     private EditText search_bar;
     private ListView lv_task;
+    private View view_calendar;
     static ArrayList<Task> Tasks = new ArrayList<>();;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,8 @@ public class IndexActivity extends AppCompatActivity {
         tv_add = (TextView) this.findViewById(R.id.tv_add);;
         search_bar = (EditText) this.findViewById(R.id.search_bar);
         lv_task = (ListView) this.findViewById(R.id.lv_task);
+
+        view_calendar = (View) this.findViewById(R.id.view_calender);
 
         synchronized (this){
             readData(user, Tasks);
@@ -75,6 +78,14 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonOpenDialogClicked();
+            }
+        });
+
+        this.view_calendar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
+                startActivity(intent);
             }
         });
     }
