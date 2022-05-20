@@ -109,6 +109,14 @@ public class IndexActivity extends AppCompatActivity {
                     lv_task.setVisibility(View.VISIBLE);
                     final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, List);
                     lv_task.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                }
+                else {
+                    view_img.setVisibility(View.VISIBLE);
+                    tv_what.setVisibility(View.VISIBLE);
+                    tv_add.setVisibility(View.VISIBLE);
+                    search_bar.setVisibility(View.INVISIBLE);
+                    lv_task.setVisibility(View.INVISIBLE);
                 }
 
             }

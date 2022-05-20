@@ -19,7 +19,9 @@ public class TaskScreenActivity extends AppCompatActivity {
     private View view_back;
     private View edit_title;
 
+
     private TextView tv_delete;
+    private View view_delete;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class TaskScreenActivity extends AppCompatActivity {
         view_back = (View) this.findViewById(R.id.view_back);
         edit_title = (View) this.findViewById(R.id.view_edit_title);
         tv_delete = (TextView) this.findViewById(R.id.textView26);
+        view_delete = (View) this.findViewById(R.id.view11);
 
         Bundle data = getIntent().getExtras();
         String title = data.getString("title");
@@ -67,6 +70,13 @@ public class TaskScreenActivity extends AppCompatActivity {
                 handleDeleteButton();
             }
         });
+        view_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleDeleteButton();
+            }
+        });
+
 
     }
 
