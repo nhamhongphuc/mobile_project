@@ -1,28 +1,18 @@
 package com.example.todoapp.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 
-import com.example.todoapp.EmailPasswordActivity;
 import com.example.todoapp.R;
-import com.example.todoapp.model.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class AddTask_Dialog extends DialogFragment {
     public Context context;
@@ -52,7 +42,7 @@ public class AddTask_Dialog extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ed_title = (EditText) view.findViewById(R.id.ed_title);
-        ed_desc = (EditText) view.findViewById(R.id.ed_description);
+        ed_desc = (EditText) view.findViewById(R.id.ed_edittask);
         view_next = (View) view.findViewById(R.id.view_send);
         view_date = (View) view.findViewById(R.id.view_timer);
         view_category = (View) view.findViewById(R.id.view_tag) ;

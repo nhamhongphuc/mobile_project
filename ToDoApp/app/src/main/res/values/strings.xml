@@ -39,4 +39,12 @@
     <string name="category_icon">Category icon:</string>
     <string name="category_color">Category color:</string>
     <string name="user">User</string>
+    <string name="edit_task_title">Edit Task Title</string>
+    <string name="do_match_homework">Do match homework</string>
+    <string name="do_chapter_2_to_5_for_next_week">Do chapter 2 to 5 for next week</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="delete">Delete</string>
+    <string name="task_title">Task title:</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure_to_want_to_delete_this_task">Are you sure to want to delete this task?</string>
 </resources>
