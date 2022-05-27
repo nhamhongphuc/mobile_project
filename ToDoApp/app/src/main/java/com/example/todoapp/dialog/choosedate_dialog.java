@@ -93,7 +93,9 @@ public class choosedate_dialog  extends DialogFragment {
 public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     // lấy giá trị tự bundle
-    String data = getArguments().getString("id", "");
+    String title = getArguments().getString("title", "");
+    String desc = getArguments().getString("desc", "");
+
 
     calendarView = (CalendarView) view.findViewById(R.id.calendarView);
     btn_choose = (Button) view.findViewById(R.id.btn_save);
@@ -109,15 +111,7 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                DatabaseReference mDatabase = FirebaseDatabase
-                        .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                        .getReference("tasks");
-
-
-                mDatabase.child(user.getUid()).child(data).child("endDate").setValue(selectedDate);
-                buttonOpenDialogClicked_Priority(data);
+                buttonOpenDialogClicked_Priority(title, desc, selectedDate);
                 getDialog().dismiss();
             }
         });
@@ -130,12 +124,14 @@ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         });
 }
 
-    private void buttonOpenDialogClicked_Priority(String id) {
+    private void buttonOpenDialogClicked_Priority(String title, String desc, String date) {
         FragmentManager fm = getFragmentManager ();
         final ChoosePriority_Dialog dialog = new ChoosePriority_Dialog();
 
         Bundle bundle = new Bundle();
-        bundle.putString("id", id);
+        bundle.putString("title", title);
+        bundle.putString("desc", desc);
+        bundle.putString("date", date);
         dialog.setArguments(bundle);
         dialog.show(fm, null);
     }

@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.todoapp.R;
 import com.example.todoapp.model.Task;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +20,12 @@ import java.util.List;
 public class TaskListAdapter extends BaseAdapter {
     private ArrayList<Task> listData;
     private Context context;
+    private LayoutInflater li;
 
     public TaskListAdapter(Context context, ArrayList<Task> listData) {
         this.context = context;
         this.listData = listData;
+        this.li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -41,25 +45,25 @@ public class TaskListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View rowView = view;
-        if (rowView == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            rowView = inflater.inflate(R.layout.task_item_layout, viewGroup, false);
+        ViewHolder holder;
+        if (view == null) {
+            view = li.inflate(R.layout.task_item_layout, viewGroup, false);
+
+            holder = new ViewHolder();
+            holder.title = (TextView) view.findViewById(R.id.tv_task_title);
+            holder.time = (TextView) view.findViewById(R.id.tv_time);
+            holder.priority = (TextView) view.findViewById(R.id.tv_priority);
         }
-
-        ViewHolder holder = new ViewHolder();
-        holder.title = (TextView) rowView.findViewById(R.id.tv_task_title);
-        holder.time = (TextView) rowView.findViewById(R.id.tv_time);
-        holder.priority = (TextView) rowView.findViewById(R.id.tv_priority);
-
-
+        else {
+            holder = (ViewHolder) view.getTag();
+        }
 
         Task model = listData.get(i);
         holder.title.setText(model.getTitle());
         holder.time.setText(model.getEndDate());
         holder.priority.setText(String.valueOf(model.getPriority()));
 
-        return rowView;
+        return view;
     }
 
     public static class ViewHolder {

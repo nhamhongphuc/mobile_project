@@ -6,7 +6,7 @@
     android:background="@color/background_color">
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view_back"
         android:layout_width="35dp"
         android:layout_height="33dp"
         android:layout_alignParentStart="true"
@@ -24,24 +24,24 @@
         android:layout_marginStart="290dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/view2"
+        android:layout_toEndOf="@+id/view_back"
         android:background="@drawable/ic_repeat" />
 
     <View
         android:id="@+id/view4"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_below="@+id/view2"
+        android:layout_below="@+id/view_back"
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/ic_ellipse_15" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view2"
+        android:layout_below="@+id/view_back"
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
         android:layout_toEndOf="@+id/view4"
@@ -50,22 +50,20 @@
         android:textSize="20sp" />
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/view_edit_title"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_below="@+id/view3"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="94dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/textView10"
         android:background="@drawable/ic_do_math" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tv_desc"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/tv_title"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="61dp"
@@ -86,10 +84,10 @@
         android:background="@drawable/ic_timer" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView15"
+        android:layout_below="@+id/tv_desc"
         android:layout_marginStart="12dp"
         android:layout_marginTop="46dp"
         android:layout_toEndOf="@+id/view6"
@@ -98,15 +96,15 @@
         android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
+        android:id="@+id/btn_time"
         android:layout_width="108dp"
         android:layout_height="37dp"
-        android:layout_below="@+id/view5"
+        android:layout_below="@+id/view_edit_title"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="113dp"
         android:layout_marginTop="66dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/textView22"
+        android:layout_toEndOf="@+id/tv_time"
         android:background="@drawable/btn_color_gray"
         android:text="Today At 16:45"
         android:textAllCaps="false"
@@ -124,10 +122,10 @@
         android:background="@drawable/ic_tag" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView22"
+        android:layout_below="@+id/tv_time"
         android:layout_marginStart="12dp"
         android:layout_marginTop="43dp"
         android:layout_toEndOf="@+id/view8"
@@ -137,15 +135,15 @@
         android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button4"
+        android:id="@+id/btn_category"
         android:layout_width="118dp"
         android:layout_height="38dp"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/btn_time"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="95dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/textView23"
+        android:layout_toEndOf="@+id/tv_category"
         android:autoText="false"
         android:background="@drawable/btn_color_gray"
         android:drawableLeft="@drawable/ic_university"
@@ -169,10 +167,10 @@
         android:background="@drawable/ic_flag" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tv_priority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView23"
+        android:layout_below="@+id/tv_category"
         android:layout_marginStart="12dp"
         android:layout_marginTop="45dp"
         android:layout_toEndOf="@+id/view9"
@@ -204,7 +202,7 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView24"
+        android:layout_below="@+id/tv_priority"
         android:layout_marginStart="12dp"
         android:layout_marginTop="44dp"
         android:layout_toEndOf="@+id/view10"
@@ -225,15 +223,15 @@
         android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button5"
+        android:id="@+id/btn_priority"
         android:layout_width="109dp"
         android:layout_height="38dp"
-        android:layout_below="@+id/button4"
+        android:layout_below="@+id/btn_category"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="122dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@+id/textView24"
+        android:layout_toEndOf="@+id/tv_priority"
         android:background="@drawable/btn_color_gray"
         android:text="Default"
         android:textAllCaps="false"
@@ -241,10 +239,10 @@
         android:textSize="12sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button9"
+        android:id="@+id/btn_sub"
         android:layout_width="137dp"
         android:layout_height="31dp"
-        android:layout_below="@+id/button5"
+        android:layout_below="@+id/btn_priority"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="126dp"
         android:layout_marginTop="31dp"
@@ -260,7 +258,7 @@
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
-        android:layout_below="@+id/button9"
+        android:layout_below="@+id/btn_sub"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
