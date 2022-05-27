@@ -8,7 +8,7 @@
     app:layout_constraintHeight_min="255dp">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_deleteTask"
+        android:id="@+id/btn_edit"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView23"
@@ -20,8 +20,7 @@
         android:text="@string/delete" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_cancelDelete"
-        tools:ignore="TextContrastCheck"
+        android:id="@+id/btn_cancel"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView23"
@@ -30,7 +29,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="33dp"
-        android:layout_toStartOf="@+id/btn_deleteTask"
+        android:layout_toStartOf="@+id/btn_edit"
         android:background="@drawable/btn_colorgrey"
         android:text="@string/cancel"
         android:textColor="#BBDEFB" />

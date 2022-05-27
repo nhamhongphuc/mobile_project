@@ -21,7 +21,6 @@
     <string name="enter_title">Enter title</string>
     <string name="description">Description</string>
     <string name="choose_time">Choose Time</string>
-    <string name="cancel">Cancel</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
     <string name="task_priority">Task Priority</string>

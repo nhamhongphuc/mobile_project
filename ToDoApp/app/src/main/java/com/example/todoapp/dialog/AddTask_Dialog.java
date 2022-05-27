@@ -42,7 +42,7 @@ public class AddTask_Dialog extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ed_title = (EditText) view.findViewById(R.id.ed_title);
-        ed_desc = (EditText) view.findViewById(R.id.ed_edittask);
+        ed_desc = (EditText) view.findViewById(R.id.ed_desc);
         view_next = (View) view.findViewById(R.id.view_send);
         view_date = (View) view.findViewById(R.id.view_timer);
         view_category = (View) view.findViewById(R.id.view_tag) ;

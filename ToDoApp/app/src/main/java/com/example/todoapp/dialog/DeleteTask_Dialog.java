@@ -2,6 +2,7 @@ package com.example.todoapp.dialog;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.todoapp.EmailPasswordActivity;
+import com.example.todoapp.IndexActivity;
 import com.example.todoapp.R;
 import com.example.todoapp.TaskScreenActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -81,8 +83,8 @@ public class DeleteTask_Dialog extends DialogFragment {
                         for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
                             appleSnapshot.getRef().removeValue();
                         }
-
                         getDialog().dismiss();
+                        getActivity().finish();
                     }
 
                     @Override
@@ -91,6 +93,7 @@ public class DeleteTask_Dialog extends DialogFragment {
                     }
                 });
             }
+
         });
     }
 }

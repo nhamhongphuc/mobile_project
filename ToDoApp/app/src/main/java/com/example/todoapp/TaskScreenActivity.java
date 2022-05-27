@@ -10,8 +10,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.dialog.AddTask_Dialog;
 import com.example.todoapp.dialog.DeleteTask_Dialog;
+import com.example.todoapp.dialog.EditTitleTask_Dialog;
+import com.example.todoapp.dialog.EditTitle_Dialog;
 
-public class TaskScreenActivity extends AppCompatActivity {
+public class TaskScreenActivity extends AppCompatActivity implements EditTitle_Dialog.OnCompleteListener {
     private TextView tv_title;
     private TextView tv_desc;
     private Button btn_time;
@@ -64,6 +66,13 @@ public class TaskScreenActivity extends AppCompatActivity {
             }
         });
 
+        edit_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleEditTitle();
+            }
+        });
+
         tv_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,12 +89,33 @@ public class TaskScreenActivity extends AppCompatActivity {
 
     }
 
+    public void onComplete(String title, String desc) {
+        // After the dialog fragment completes, it calls this callback.
+        // use the string here
+        if (!tv_title.getText().toString().equals(title) || !tv_desc.getText().toString().equals(desc)) {
+            tv_title.setText(title);
+            tv_desc.setText(desc);
+        }
+    }
+
     private void handleDeleteButton() {
         FragmentManager fm = getSupportFragmentManager();
         DeleteTask_Dialog dialog = new DeleteTask_Dialog();
 
         Bundle bundle = new Bundle();
         bundle.putString("title", tv_title.getText().toString());
+        dialog.setArguments(bundle);
+
+        dialog.show(fm, null);
+    }
+
+    private void handleEditTitle() {
+        FragmentManager fm = getSupportFragmentManager();
+        EditTitleTask_Dialog dialog = new EditTitleTask_Dialog();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("title", tv_title.getText().toString());
+        bundle.putString("desc", tv_desc.getText().toString());
         dialog.setArguments(bundle);
 
         dialog.show(fm, null);
