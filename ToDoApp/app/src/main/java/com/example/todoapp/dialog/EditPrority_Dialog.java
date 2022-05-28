@@ -1,5 +1,6 @@
 package com.example.todoapp.dialog;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ChoosePriority_Dialog extends DialogFragment {
+public class EditPrority_Dialog extends DialogFragment {
     private RadioButton r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
-    private Button btn_cancel, btn_save;
+    private Button btn_cancel, btn_edit;
 
-    public ChoosePriority_Dialog() {};
-
+    public EditPrority_Dialog() {
+    }
     @Override
     public void onResume() {
         super.onResume();
@@ -30,19 +31,15 @@ public class ChoosePriority_Dialog extends DialogFragment {
         int height = 100 + getResources().getDisplayMetrics().heightPixels/2 ;
         getDialog().getWindow().setLayout(width, height);
     }
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.choosepriority, container);
+        return inflater.inflate(R.layout.edit_priority, container);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String title = getArguments().getString("title", "");
-        String desc = getArguments().getString("desc", "");
-        String date = getArguments().getString("date", "");
-
+        String tmp = getArguments().getString("priority", "");
         r1 = (RadioButton) view.findViewById(R.id.radio_1);
         r2 = (RadioButton) view.findViewById(R.id.radio_2);
         r3 = (RadioButton) view.findViewById(R.id.radio_3);
@@ -56,12 +53,12 @@ public class ChoosePriority_Dialog extends DialogFragment {
 
 
         btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
-        btn_save = (Button) view.findViewById(R.id.btn_edit);
+        btn_edit = (Button) view.findViewById(R.id.btn_edit);
 
-        btn_save.setOnClickListener(new View.OnClickListener() {
+        btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int priority = 0;
+                int priority = Integer.parseInt(tmp);
                 if (r1.isChecked()) {
                     priority = 1;
                 } else if (r2.isChecked()) {
@@ -84,24 +81,8 @@ public class ChoosePriority_Dialog extends DialogFragment {
                     priority = 10;
                 }
 
-                if (priority == 0) {
-                    getDialog().dismiss();
-                } else {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    DatabaseReference mDatabase = FirebaseDatabase
-                            .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                            .getReference("tasks");
-
-                    String taskId = mDatabase.push().getKey();
-                    Task task = new Task(title, desc);
-                    task.setPriority(priority);
-                    task.setCompleted(false);
-                    task.setEndDate(date);
-
-                    mDatabase.child(user.getUid()).child(taskId).setValue(task);
-                    getDialog().dismiss();
-                }
+                onSendUpdateData(priority);
+                getDialog().dismiss();
             }
         });
 
@@ -111,6 +92,26 @@ public class ChoosePriority_Dialog extends DialogFragment {
                 getDialog().dismiss();
             }
         });
+    }
 
+    public static interface OnCompleteListener_Priority {
+        public abstract void onComplete_priority(Integer priority);
+    }
+    public void onSendUpdateData(Integer priority) {
+        this.mListener.onComplete_priority(priority);
+    }
+
+    private EditTitle_Dialog.OnCompleteListener mListener;
+
+    // make sure the Activity implemented it
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            this.mListener = (EditTitle_Dialog.OnCompleteListener)activity;
+        }
+        catch (final ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnCompleteListener");
+        }
     }
 }

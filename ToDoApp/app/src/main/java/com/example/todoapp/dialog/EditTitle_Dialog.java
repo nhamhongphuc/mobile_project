@@ -41,7 +41,7 @@ public class EditTitle_Dialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         String title = getArguments().getString("title", "");
-        String desc = getArguments().getString("title", "");
+        String desc = getArguments().getString("desc", "");
 
         ed_title = (EditText) view.findViewById(R.id.ed_title);
         ed_desc = (EditText) view.findViewById(R.id.ed_desc);
@@ -71,6 +71,10 @@ public class EditTitle_Dialog extends DialogFragment {
 
     public static interface OnCompleteListener {
         public abstract void onComplete(String title, String desc);
+
+        void onComplete_date(String date);
+
+        void onComplete_priority(Integer priority);
     }
     public void onSendUpdateData(String title, String desc) {
         this.mListener.onComplete(title, desc);
