@@ -1,18 +1,13 @@
 package com.example.todoapp.dialog;
 
-import static android.content.ContentValues.TAG;
-
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,16 +15,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.R;
-import com.google.android.material.badge.BadgeUtils;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class choosedate_dialog  extends DialogFragment {
     public Context context;
@@ -89,40 +74,40 @@ public class choosedate_dialog  extends DialogFragment {
 //            }
 //        });
 //    }
-@Override
-public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-    // lấy giá trị tự bundle
-    String title = getArguments().getString("title", "");
-    String desc = getArguments().getString("desc", "");
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // lấy giá trị tự bundle
+        String title = getArguments().getString("title", "");
+        String desc = getArguments().getString("desc", "");
 
 
-    calendarView = (CalendarView) view.findViewById(R.id.calendarView);
-    btn_choose = (Button) view.findViewById(R.id.btn_save);
-    btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+        calendarView = (CalendarView) view.findViewById(R.id.calendarView);
+        btn_choose = (Button) view.findViewById(R.id.btn_edit);
+        btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 
-    calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-        @Override
-        public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
-            selectedDate = year + "/" + String.format("%02d",(month+1)) + "/" + String.format("%02d",day);
-            Log.d("calendar", String.valueOf(view.getDate()));
-        }
-    });
-        btn_choose.setOnClickListener(new View.OnClickListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onClick(View view) {
-                buttonOpenDialogClicked_Priority(title, desc, selectedDate);
-                getDialog().dismiss();
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
+                selectedDate = year + "/" + String.format("%02d",(month+1)) + "/" + String.format("%02d",day);
+                Log.d("calendar", String.valueOf(view.getDate()));
             }
         });
+            btn_choose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    buttonOpenDialogClicked_Priority(title, desc, selectedDate);
+                    getDialog().dismiss();
+                }
+            });
 
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getDialog().dismiss();
-            }
-        });
-}
+            btn_cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getDialog().dismiss();
+                }
+            });
+    }
 
     private void buttonOpenDialogClicked_Priority(String title, String desc, String date) {
         FragmentManager fm = getFragmentManager ();

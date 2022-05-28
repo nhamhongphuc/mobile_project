@@ -37,7 +37,7 @@
         android:timePickerMode="spinner" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_save"
+        android:id="@+id/btn_edit"
         android:layout_width="140dp"
         android:layout_height="48dp"
         android:layout_marginStart="240dp"

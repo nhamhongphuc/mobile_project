@@ -74,7 +74,11 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_divider_2.xml" value="0.165" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_google.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_home.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_menu.xml" value="0.156" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_movie.xml" value="0.156" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_music.xml" value="0.156" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_note.xml" value="0.166" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_repeat.xml" value="0.156" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_send.xml" value="0.156" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/ic_vector.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/radio_btn_color.xml" value="0.166" />
@@ -96,7 +100,7 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_priority.xml" value="0.15" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_task_title.xml" value="0.16" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_time_layout.xml" value="0.1" />
-        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/editcategory_layout.xml" value="0.1287568306010929" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/editcategory_layout.xml" value="0.14" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edittitle_dialog.xml" value="0.14" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edittitle_layout.xml" value="0.1" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/index_layout.xml" value="0.18" />
