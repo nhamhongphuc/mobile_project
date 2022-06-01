@@ -58,6 +58,7 @@ public class AddTask_Dialog extends DialogFragment {
 
 
                 buttonOpenDialogClicked(title, desc);
+                getDialog().dismiss();
             }
         });
 

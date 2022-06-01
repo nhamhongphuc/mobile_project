@@ -75,6 +75,9 @@ public class EditTitle_Dialog extends DialogFragment {
         void onComplete_date(String date);
 
         void onComplete_priority(Integer priority);
+
+
+        void onComplete_category(String cate);
     }
     public void onSendUpdateData(String title, String desc) {
         this.mListener.onComplete(title, desc);

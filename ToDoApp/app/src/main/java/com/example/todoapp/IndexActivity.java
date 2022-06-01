@@ -26,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class IndexActivity extends AppCompatActivity {
     private static final String TAG = "IndexActivity";
@@ -69,6 +71,7 @@ public class IndexActivity extends AppCompatActivity {
                 intent.putExtra("comp", task.isCompleted());
                 intent.putExtra("start", task.getStartDate());
                 intent.putExtra("end", task.getEndDate());
+                intent.putExtra("category", task.getCategory());
                 startActivity(intent);
             }
         });
@@ -109,8 +112,20 @@ public class IndexActivity extends AppCompatActivity {
                 for (DataSnapshot item : dataSnapshot.getChildren())
                 {
                     Task task = item.getValue(Task.class);
-                    Log.e(TAG, "onDataChange: "+ task.getTitle(), null );
                     List.add(task);
+//                    if (List.size()==0) {
+//                        List.add(task);
+//                    } else {
+//                        for (int i = 0; i< List.size(); i++) {
+//                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy//MM/dd");
+//                            Date iteDate = sdf.parse(List.get(i).getEndDate());
+//                            Date strDate = sdf.parse(task.getEndDate());
+//                            if (iteDate.after(strDate)) {
+//                                List.add(i, task);
+//                                break;
+//                            }
+//                        }
+//                    }
                 }
                 if (List.size() > 0) {
                     view_img.setVisibility(View.INVISIBLE);

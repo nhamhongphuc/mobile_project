@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.dialog.DeleteTask_Dialog;
+import com.example.todoapp.dialog.EditCategory_Dialog;
 import com.example.todoapp.dialog.EditDate_Dialog;
 import com.example.todoapp.dialog.EditPrority_Dialog;
 import com.example.todoapp.dialog.EditTitle_Dialog;
@@ -32,6 +33,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
     private TextView tv_desc;
     private Button btn_time;
     private Button btn_priority;
+    private Button btn_category;
     private View view_back;
     private View edit_title;
     private View view_refresh;
@@ -50,6 +52,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
         tv_desc = (TextView) this.findViewById(R.id.tv_desc);
         btn_time = (Button) this.findViewById(R.id.btn_time);
         btn_priority = (Button) this.findViewById(R.id.btn_priority);
+        btn_category = (Button) this.findViewById(R.id.btn_category);
         view_back = (View) this.findViewById(R.id.view_back);
         edit_title = (View) this.findViewById(R.id.view_edit_title);
         view_refresh = (View) this.findViewById(R.id.view_refresh);
@@ -64,11 +67,34 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
         int priority = data.getInt("priority");
         String startDate = data.getString("start");
         String endDate = data.getString("end");
+        String category = data.getString("category");
 
         tv_title.setText(title);
         tv_desc.setText(desc);
         btn_time.setText(endDate);
         btn_priority.setText(String.valueOf(priority));
+        btn_category.setText(category);
+        if (category.equals("Grocery")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_grocery_lite,0,0,0);
+        } else if (category.equals("Work")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_work_lite,0,0,0);
+        } else if (category.equals("Sport")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sport_lite,0,0,0);
+        } else if (category.equals("Design")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_design_lite,0,0,0);
+        } else if (category.equals("University")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_uni_lite,0,0,0);
+        } else if (category.equals("Social")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_social_lite,0,0,0);
+        } else if (category.equals("Music")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_music_lite,0,0,0);
+        } else if (category.equals("Health")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_health_lite,0,0,0);
+        } else if (category.equals("Movie")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
+        } else if (category.equals("Home")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
+        }
 
         view_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +129,13 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
             }
         });
 
+        btn_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleEditCategory();
+            }
+        });
+
         view_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +143,28 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
                 tv_desc.setText(desc);
                 btn_time.setText(endDate);
                 btn_priority.setText(String.valueOf(priority));
+                btn_category.setText(category);
+                if (category.equals("Grocery")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_grocery_lite,0,0,0);
+                } else if (category.equals("Work")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_work_lite,0,0,0);
+                } else if (category.equals("Sport")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sport_lite,0,0,0);
+                } else if (category.equals("Design")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_design_lite,0,0,0);
+                } else if (category.equals("University")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_uni_lite,0,0,0);
+                } else if (category.equals("Social")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_social_lite,0,0,0);
+                } else if (category.equals("Music")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_music_lite,0,0,0);
+                } else if (category.equals("Health")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_health_lite,0,0,0);
+                } else if (category.equals("Movie")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
+                } else if (category.equals("Home")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
+                }
                 Log.e(TAG, "onClick: refresh success", null);
             }
         });
@@ -131,7 +186,8 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
             @Override
             public void onClick(View view) {
                 if (!tv_title.getText().toString().equals(title) || !tv_desc.getText().toString().equals(desc)
-                    || !btn_time.getText().toString().equals(endDate) || !btn_priority.getText().toString().equals(String.valueOf(priority))) {
+                    || !btn_time.getText().toString().equals(endDate) || !btn_priority.getText().toString().equals(String.valueOf(priority))
+                    || !btn_category.getText().toString().equals(category)) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                     Query getTask = FirebaseDatabase
@@ -146,6 +202,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
                                 appleSnapshot.getRef().child("description").setValue(tv_desc.getText().toString());
                                 appleSnapshot.getRef().child("endDate").setValue(btn_time.getText().toString());
                                 appleSnapshot.getRef().child("priority").setValue(Integer.parseInt(btn_priority.getText().toString()));
+                                appleSnapshot.getRef().child("category").setValue(btn_category.getText().toString());
                             }
                             finish();
                         }
@@ -185,6 +242,36 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
     public void onComplete_priority(Integer priority) {
         if (!btn_priority.getText().toString().equals(String.valueOf(priority))) {
             btn_priority.setText(String.valueOf(priority));
+        }
+    }
+
+    //Xu ly data tra ve tu Dialog Edit Category
+    @Override
+    public void onComplete_category(String category) {
+        if (category.equals(btn_category.getText().toString())) {
+            return;
+        }
+        btn_category.setText(category);
+        if (category.equals("Grocery")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_grocery_lite,0,0,0);
+        } else if (category.equals("Work")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_work_lite,0,0,0);
+        } else if (category.equals("Sport")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sport_lite,0,0,0);
+        } else if (category.equals("Design")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_design_lite,0,0,0);
+        } else if (category.equals("University")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_uni_lite,0,0,0);
+        } else if (category.equals("Social")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_social_lite,0,0,0);
+        } else if (category.equals("Music")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_music_lite,0,0,0);
+        } else if (category.equals("Health")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_health_lite,0,0,0);
+        } else if (category.equals("Movie")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
+        } else if (category.equals("Home")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
         }
     }
 
@@ -233,5 +320,11 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
         dialog.show(fm, null);
     }
 
+    private void handleEditCategory() {
+        FragmentManager fm = getSupportFragmentManager();
+        EditCategory_Dialog dialog = new EditCategory_Dialog();
 
+
+        dialog.show(fm, null);
+    }
 }

@@ -53,12 +53,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <RadioButton
+                        android:id="@+id/radio_grocery"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/ic_grocery" />
+                        android:background="@drawable/ic_grocery"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView12"
@@ -77,11 +82,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_work" />
+                    <RadioButton
+                        android:id="@+id/radio_work"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_work"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -98,11 +109,17 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView17"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_sport" />
+                    <RadioButton
+                        android:id="@+id/radio_sport"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_sport"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView9"
@@ -129,11 +146,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView18"
-                        android:layout_width="136dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_design" />
+                    <RadioButton
+                        android:id="@+id/radio_design"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_design"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView11"
@@ -149,11 +172,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView19"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_university_category" />
+                    <RadioButton
+                        android:id="@+id/radio_uni"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_university_category"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView13"
@@ -169,11 +198,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView20"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_social" />
+                    <RadioButton
+                        android:id="@+id/radio_social"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_social"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView14"
@@ -197,11 +232,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView21"
-                        android:layout_width="136dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_music" />
+                    <RadioButton
+                        android:id="@+id/radio_music"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_music"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView16"
@@ -217,11 +258,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView22"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_health" />
+                    <RadioButton
+                        android:id="@+id/radio_health"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_health"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView17"
@@ -237,11 +284,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView23"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_movie" />
+                    <RadioButton
+                        android:id="@+id/radio_movie"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_movie"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView18"
@@ -264,11 +317,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView28"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_home" />
+                    <RadioButton
+                        android:id="@+id/radio_home"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_home"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView20"
@@ -282,13 +341,20 @@
                 <LinearLayout
                     android:layout_width="137dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="invisible">
 
-                    <ImageView
-                        android:id="@+id/imageView29"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_create_new" />
+                    <RadioButton
+                        android:id="@+id/radio_new"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_create_new"
+                        android:button="@null"
+                        android:gravity="center|center_horizontal|fill_horizontal"
+                        android:layoutDirection="rtl" />
 
                     <TextView
                         android:id="@+id/textView21"
@@ -302,27 +368,19 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/cancel" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_edit"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_color"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
 
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/edit" />
-            </LinearLayout>
 
         </LinearLayout>
     </RadioGroup>
