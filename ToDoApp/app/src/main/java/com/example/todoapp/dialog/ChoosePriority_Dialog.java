@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.R;
 import com.example.todoapp.model.Task;
@@ -87,19 +88,16 @@ public class ChoosePriority_Dialog extends DialogFragment {
                 if (priority == 0) {
                     getDialog().dismiss();
                 } else {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    FragmentManager fm = getFragmentManager ();
+                    final ChooseCategory_Dialog dialog = new ChooseCategory_Dialog();
 
-                    DatabaseReference mDatabase = FirebaseDatabase
-                            .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                            .getReference("tasks");
-
-                    String taskId = mDatabase.push().getKey();
-                    Task task = new Task(title, desc);
-                    task.setPriority(priority);
-                    task.setCompleted(false);
-                    task.setEndDate(date);
-
-                    mDatabase.child(user.getUid()).child(taskId).setValue(task);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", title);
+                    bundle.putString("desc", desc);
+                    bundle.putString("date", date);
+                    bundle.putInt("priority", priority);
+                    dialog.setArguments(bundle);
+                    dialog.show(fm, null);
                     getDialog().dismiss();
                 }
             }
