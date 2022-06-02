@@ -8,13 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.todoapp.EmailPasswordActivity;
 import com.example.todoapp.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class choosedate_dialog  extends DialogFragment {
     public Context context;
@@ -45,35 +50,7 @@ public class choosedate_dialog  extends DialogFragment {
         getDialog().getWindow().setLayout(width, height/2);
     }
 
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        setContentView(R.layout.choosedate_layout);
-//
-//        calendarView = (CalendarView) this.findViewById(R.id.calendarView);
-//        btn_choose = (Button) this.findViewById(R.id.btn_save);
-//        btn_cancel = (Button) this.findViewById(R.id.btn_cancel);
-//
-//        btn_choose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//                DatabaseReference mDatabase = FirebaseDatabase
-//                        .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-//                        .getReference("tasks");
-//                //mDatabase.child(user.getUid()).child(taskId).setValue(task);
-//                long selectedDate = calendarView.getDate();
-//            }
-//        });
-//
-//        btn_cancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                choosedate_dialog.dismiss();
-//            }
-//        });
-//    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -96,8 +73,20 @@ public class choosedate_dialog  extends DialogFragment {
             btn_choose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    buttonOpenDialogClicked_Priority(title, desc, selectedDate);
-                    getDialog().dismiss();
+                    try {
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                        Date date = sdf.parse(selectedDate);
+                        Date curDate = sdf.parse(sdf.format(new Date()));
+                        if (date.before(curDate)) {
+                            Toast.makeText(getContext(), "Not valid date.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            buttonOpenDialogClicked_Priority(title, desc, selectedDate);
+                            getDialog().dismiss();
+                        }
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 

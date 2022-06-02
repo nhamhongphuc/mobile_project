@@ -28,7 +28,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.text.ParseException;
+
 
 public class IndexActivity extends AppCompatActivity {
     private static final String TAG = "IndexActivity";
@@ -113,26 +117,36 @@ public class IndexActivity extends AppCompatActivity {
                 {
                     Task task = item.getValue(Task.class);
                     List.add(task);
-//                    if (List.size()==0) {
-//                        List.add(task);
-//                    } else {
-//                        for (int i = 0; i< List.size(); i++) {
-//                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy//MM/dd");
-//                            Date iteDate = sdf.parse(List.get(i).getEndDate());
-//                            Date strDate = sdf.parse(task.getEndDate());
-//                            if (iteDate.after(strDate)) {
-//                                List.add(i, task);
-//                                break;
-//                            }
-//                        }
-//                    }
                 }
+
                 if (List.size() > 0) {
                     view_img.setVisibility(View.INVISIBLE);
                     tv_what.setVisibility(View.INVISIBLE);
                     tv_add.setVisibility(View.INVISIBLE);
                     search_bar.setVisibility(View.VISIBLE);
                     lv_task.setVisibility(View.VISIBLE);
+
+                    for (int i = 0; i < List.size() - 1 ; i++) {
+                        for (int j = i+1; j <List.size(); j++) {
+                            try {
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                                Date pre_Date = sdf.parse(List.get(i).getEndDate());
+                                Date af_Date = sdf.parse(List.get(j).getEndDate());
+                                int check = pre_Date.compareTo(af_Date);
+                                if (check<0) {
+                                    Collections.swap(List, i, j);
+                                } else if (check == 0) {
+                                    if (List.get(i).getPriority() < List.get(j).getPriority()) {
+                                        Collections.swap(List, i, j);
+                                    }
+                                }
+                            } catch (java.text.ParseException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
                     final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, List);
                     lv_task.setAdapter(adapter);
                     adapter.notifyDataSetChanged();

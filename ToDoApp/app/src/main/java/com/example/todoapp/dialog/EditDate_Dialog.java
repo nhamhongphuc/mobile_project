@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,8 +76,21 @@ public class EditDate_Dialog extends DialogFragment {
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSendUpdateData(selectedDate);
-                getDialog().dismiss();
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                    Date date = sdf.parse(selectedDate);
+                    Date curDate = sdf.parse(sdf.format(new Date()));
+                    if (date.before(curDate)) {
+                        Toast.makeText(getContext(), "Not valid date.",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        onSendUpdateData(selectedDate);
+                        getDialog().dismiss();
+                    }
+                } catch (java.text.ParseException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
