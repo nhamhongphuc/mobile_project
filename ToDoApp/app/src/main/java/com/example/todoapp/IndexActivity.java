@@ -1,7 +1,10 @@
 package com.example.todoapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -11,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -43,6 +47,7 @@ public class IndexActivity extends AppCompatActivity {
     private EditText search_bar;
     private ListView lv_task;
     static ArrayList<Task> Tasks = new ArrayList<>();
+    ArrayList<Task> tmp_Tasks = new ArrayList<>();
 
     private View view_calender;
 
@@ -67,6 +72,9 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Task task = Tasks.get(i);
+                if (!search_bar.getText().toString().equals("")) {
+                    task = tmp_Tasks.get(i);
+                }
 
                 Intent intent = new Intent(getApplicationContext(), TaskScreenActivity.class);
                 intent.putExtra("title", task.getTitle());
@@ -85,6 +93,31 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonOpenDialogClicked();
+            }
+        });
+
+        search_bar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                tmp_Tasks.clear();
+                for (int i = 0; i < Tasks.size(); i++) {
+                    if (Tasks.get(i).getTitle().contains(editable.toString())) {
+                        tmp_Tasks.add(Tasks.get(i));
+                    }
+                }
+                final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, tmp_Tasks);
+                lv_task.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
         });
 
@@ -146,10 +179,23 @@ public class IndexActivity extends AppCompatActivity {
                             }
                         }
                     }
+                    if (search_bar.getText().toString().equals("")) {
+                        final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, List);
+                        lv_task.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        String tmp = search_bar.getText().toString();
+                        tmp_Tasks.clear();
+                        for (int i = 0; i < Tasks.size(); i++) {
+                            if (Tasks.get(i).getTitle().contains(tmp)) {
+                                tmp_Tasks.add(Tasks.get(i));
+                            }
+                        }
+                        final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, tmp_Tasks);
+                        lv_task.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    }
 
-                    final TaskListAdapter adapter = new TaskListAdapter(IndexActivity.this, List);
-                    lv_task.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
                 }
                 else {
                     view_img.setVisibility(View.VISIBLE);
@@ -160,8 +206,6 @@ public class IndexActivity extends AppCompatActivity {
                 }
 
             }
-
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
