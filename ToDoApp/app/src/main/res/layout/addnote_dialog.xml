@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/textbox_layout">
+
+    <View
+        android:id="@+id/view_back"
+        android:layout_width="11dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_vector" />
+    <TextView
+        android:id="@+id/tv_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:text="Note"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/view_back"/>
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="40dp"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/ed_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/view_back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/nav_color"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/default_selected" />
+
+    <EditText
+        android:id="@+id/ed_desc"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/ed_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/nav_color"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        android:minHeight="40dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/default_selected" />
+
+    <EditText
+        android:id="@+id/ed_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ed_desc"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Content..."
+        android:inputType="textMultiLine"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/default_selected" />
+
+</RelativeLayout>

@@ -1,21 +1,16 @@
 package com.example.todoapp.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.todoapp.R;
 import com.example.todoapp.model.Task;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TaskListAdapter extends BaseAdapter {
     private ArrayList<Task> listData;
@@ -50,7 +45,7 @@ public class TaskListAdapter extends BaseAdapter {
             view = li.inflate(R.layout.task_item_layout, viewGroup, false);
 
             holder = new ViewHolder();
-            holder.title = (TextView) view.findViewById(R.id.tv_task_title);
+            holder.title = (TextView) view.findViewById(R.id.tv_note_title);
             holder.time = (TextView) view.findViewById(R.id.tv_time);
             holder.priority = (TextView) view.findViewById(R.id.tv_priority);
             holder.category = (TextView) view.findViewById(R.id.tv_category);
