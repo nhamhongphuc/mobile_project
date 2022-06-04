@@ -47,4 +47,7 @@
     <string name="cancel">Cancel</string>
     <string name="are_you_sure_to_want_to_delete_this_task">Are you sure to want to delete this task?</string>
     <string name="choose_priority">Choose Priority</string>
+    <string name="tap_to_add_your_note">Tap + to add your Note</string>
+    <string name="your_note_s_title">Your note\'s title</string>
+    <string name="your_note_s_description">Your note\'s description</string>
 </resources>
