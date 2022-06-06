@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import com.example.todoapp.adapter.NoteListAdapter;
 import com.example.todoapp.adapter.TaskListAdapter;
 import com.example.todoapp.dialog.AddNote_Dialog;
 import com.example.todoapp.dialog.AddTask_Dialog;
+import com.example.todoapp.dialog.EditNote_Dialog;
+import com.example.todoapp.dialog.choosedate_dialog;
 import com.example.todoapp.model.Note;
 import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -98,6 +101,27 @@ public class NoteActivity extends AppCompatActivity {
                 final NoteListAdapter adapter = new NoteListAdapter(NoteActivity.this, tmp_Note);
                 lv_note.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+            }
+        });
+
+        lv_note.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Note note = Notes.get(i);
+                if (!search_bar.getText().toString().equals("")) {
+                    note = tmp_Note.get(i);
+                };
+
+                FragmentManager fm = getSupportFragmentManager ();
+                final EditNote_Dialog dialog = new EditNote_Dialog();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("title", note.getTitle());
+                bundle.putString("desc", note.getDescription());
+                bundle.putString("content", note.getContent());
+                bundle.putString("date", note.getCreatedDate());
+                dialog.setArguments(bundle);
+                dialog.show(fm, null);
             }
         });
 

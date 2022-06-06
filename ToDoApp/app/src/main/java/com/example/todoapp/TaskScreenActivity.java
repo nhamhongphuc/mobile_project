@@ -193,7 +193,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
                     Query getTask = FirebaseDatabase
                             .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
                             .getReference("tasks")
-                            .child(user.getUid()).orderByChild("title").equalTo(title);;
+                            .child(user.getUid()).orderByChild("title").equalTo(title);
                     getTask.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -281,6 +281,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
 
         Bundle bundle = new Bundle();
         bundle.putString("title", tv_title.getText().toString());
+        bundle.putString("desc", tv_desc.getText().toString());
         dialog.setArguments(bundle);
 
         dialog.show(fm, null);

@@ -11,4 +11,5 @@
     <color name="background_color">#121212</color>
     <color name="nav_color">#363636</color>
     <color name="grocery_color">#CCFF80</color>
+    <color name="red">#FF0000</color>
 </resources>
