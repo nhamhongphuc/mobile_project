@@ -106,7 +106,7 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/drawable/textbox_layout.xml" value="0.166" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.11099726775956284" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addcategory_layout.xml" value="0.13" />
-        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addnote_dialog.xml" value="0.12" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addnote_dialog.xml" value="0.22" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/addtask_dialog.xml" value="0.2" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/calendar_layout.xml" value="0.22" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/changaccountname_layout.xml" value="0.1" />
@@ -117,6 +117,7 @@
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/choosetime_layout.xml" value="0.18" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/create_new_category.xml" value="0.25" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/delete_task.xml" value="0.16" />
+        <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/deletenote_dialog.xml" value="0.16" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/deletetask_dialog.xml" value="0.16" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_date_layout.xml" value="0.18" />
         <entry key="..\:/Users/19520/OneDrive/Desktop/mobile_project/ToDoApp/app/src/main/res/layout/edit_priority.xml" value="0.15" />

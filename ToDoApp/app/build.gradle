@@ -27,7 +27,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -39,7 +38,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.github.gastricspark:scrolldatepicker:0.0.1'
-}
+    implementation "androidx.core:core:1.6.0"}
 dependencies {
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:29.3.1')

@@ -2,7 +2,6 @@ package com.example.todoapp.dialog;
 
 import static android.content.ContentValues.TAG;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,31 +9,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.todoapp.EmailPasswordActivity;
-import com.example.todoapp.IndexActivity;
 import com.example.todoapp.R;
-import com.example.todoapp.TaskScreenActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class DeleteTask_Dialog extends DialogFragment {
+public class DeleteNote_Dialog extends DialogFragment {
     private TextView tv_title;
     private Button btn_del;
     private Button btn_cancel;
 
-    public DeleteTask_Dialog() {
+    public DeleteNote_Dialog() {
     }
 
     @Override
@@ -47,7 +41,7 @@ public class DeleteTask_Dialog extends DialogFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.deletetask_dialog, container);
+        return inflater.inflate(R.layout.deletenote_dialog, container);
     }
 
     @Override
@@ -76,9 +70,8 @@ public class DeleteTask_Dialog extends DialogFragment {
 
                 Query getTask = FirebaseDatabase
                         .getInstance("https://todoapp-ptk-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                        .getReference("tasks")
+                        .getReference("notes")
                         .child(user.getUid()).orderByChild("title").equalTo(title);
-
                 getTask.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -86,7 +79,7 @@ public class DeleteTask_Dialog extends DialogFragment {
                             appleSnapshot.getRef().removeValue();
                         }
                         getDialog().dismiss();
-                        getActivity().finish();
+
                     }
 
                     @Override

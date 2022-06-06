@@ -33,7 +33,7 @@ public class AddNote_Dialog extends DialogFragment {
     public void onResume() {
         super.onResume();
         int width = getResources().getDisplayMetrics().widthPixels;
-        int height = getResources().getDisplayMetrics().heightPixels;
+        int height = (getResources().getDisplayMetrics().heightPixels)/2;
         getDialog().getWindow().setLayout(width, height);
     }
 
