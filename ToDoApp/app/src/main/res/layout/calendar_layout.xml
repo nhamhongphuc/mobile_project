@@ -152,4 +152,13 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
+    <ListView
+        android:id="@+id/lstview_calendar"
+        android:layout_width="381dp"
+        android:layout_height="310dp"
+        android:layout_above="@+id/view_navbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="29dp" />
+
 </RelativeLayout>
