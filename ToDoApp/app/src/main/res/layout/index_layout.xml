@@ -207,10 +207,10 @@
         android:layout_above="@id/view_navbar"
         android:layout_below="@id/search_bar"
         android:layout_centerHorizontal="true"
-        android:dividerHeight="5dp"
-
         android:layout_marginTop="14dp"
+
         android:layout_marginBottom="53dp"
+        android:dividerHeight="5dp"
         android:visibility="invisible"
         tools:visibility="invisible" />
 
