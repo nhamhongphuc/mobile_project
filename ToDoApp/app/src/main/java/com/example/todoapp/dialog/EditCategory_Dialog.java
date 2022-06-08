@@ -12,11 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.todoapp.R;
-import com.example.todoapp.model.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class EditCategory_Dialog extends DialogFragment {
     private RadioButton r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11;
@@ -52,7 +47,7 @@ public class EditCategory_Dialog extends DialogFragment {
         r8 = (RadioButton) view.findViewById(R.id.radio_health);
         r9 = (RadioButton) view.findViewById(R.id.radio_movie);
         r10 = (RadioButton) view.findViewById(R.id.radio_home);
-        r11 = (RadioButton) view.findViewById(R.id.radio_new);
+        r11 = (RadioButton) view.findViewById(R.id.radio_other);
 
         btn_edit = (Button) view.findViewById(R.id.btn_edit);
 
@@ -124,6 +119,13 @@ public class EditCategory_Dialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 onSendUpdateData("Home");
+                getDialog().dismiss();
+            }
+        });
+        r11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSendUpdateData("Other");
                 getDialog().dismiss();
             }
         });

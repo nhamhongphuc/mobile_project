@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.dialog.DeleteTask_Dialog;
@@ -25,6 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TaskScreenActivity extends AppCompatActivity implements EditTitle_Dialog.OnCompleteListener,
                                                                     EditDate_Dialog.OnCompleteListener_Date,
                                                                     EditPrority_Dialog.OnCompleteListener_Priority
@@ -38,7 +42,11 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
     private View edit_title;
     private View view_refresh;
     private Button btn_update;
+    private View complete;
+    private View notComplete;
+    private View miss;
 
+    private boolean isChange = false;
 
     private TextView tv_delete;
     private View view_delete;
@@ -59,6 +67,10 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
         tv_delete = (TextView) this.findViewById(R.id.textView26);
         view_delete = (View) this.findViewById(R.id.view11);
         btn_update = (Button) this.findViewById(R.id.btn_update);
+
+        complete =  (View) this.findViewById(R.id.view_done);
+        notComplete =  (View) this.findViewById(R.id.view4);
+        miss =  (View) this.findViewById(R.id.view_miss);
 
         Bundle data = getIntent().getExtras();
         String title = data.getString("title");
@@ -94,8 +106,50 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
             btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
         } else if (category.equals("Home")) {
             btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
+        } else if (category.equals("Other")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_other_lite,0,0,0);
         }
 
+        if(isComp) {
+            complete.setVisibility(View.VISIBLE);
+            complete.setClickable(true);
+            notComplete.setVisibility(View.INVISIBLE);
+            notComplete.setClickable(false);
+        } else {
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = sdf.parse(endDate);
+                Date curDate = sdf.parse(sdf.format(new Date()));
+                if (date.before(curDate)) {
+                    notComplete.setVisibility(View.INVISIBLE);
+                    miss.setVisibility(View.VISIBLE);
+                    notComplete.setClickable(false);
+                }
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                complete.setVisibility(View.INVISIBLE);
+                complete.setClickable(false);
+                notComplete.setVisibility(View.VISIBLE);
+                notComplete.setClickable(true);
+                isChange = true;
+            }
+        });
+
+        notComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                complete.setVisibility(View.VISIBLE);
+                complete.setClickable(true);
+                notComplete.setVisibility(View.INVISIBLE);
+                notComplete.setClickable(false);
+                isChange = true;
+            }
+        });
         view_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,6 +218,29 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
                     btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
                 } else if (category.equals("Home")) {
                     btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
+                } else if (category.equals("Other")) {
+                    btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_other_lite,0,0,0);
+                }
+
+                if(isComp) {
+                    complete.setVisibility(View.VISIBLE);
+                    complete.setClickable(true);
+                    notComplete.setVisibility(View.INVISIBLE);
+                    notComplete.setClickable(false);
+
+                } else {
+                    try {
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                        Date date = sdf.parse(endDate);
+                        Date curDate = sdf.parse(sdf.format(new Date()));
+                        if (date.before(curDate)) {
+                            notComplete.setVisibility(View.INVISIBLE);
+                            miss.setVisibility(View.VISIBLE);
+                            notComplete.setClickable(false);
+                        }
+                    } catch (java.text.ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
                 Log.e(TAG, "onClick: refresh success", null);
             }
@@ -187,7 +264,7 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
             public void onClick(View view) {
                 if (!tv_title.getText().toString().equals(title) || !tv_desc.getText().toString().equals(desc)
                     || !btn_time.getText().toString().equals(endDate) || !btn_priority.getText().toString().equals(String.valueOf(priority))
-                    || !btn_category.getText().toString().equals(category)) {
+                    || !btn_category.getText().toString().equals(category) || isChange) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                     Query getTask = FirebaseDatabase
@@ -203,6 +280,10 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
                                 appleSnapshot.getRef().child("endDate").setValue(btn_time.getText().toString());
                                 appleSnapshot.getRef().child("priority").setValue(Integer.parseInt(btn_priority.getText().toString()));
                                 appleSnapshot.getRef().child("category").setValue(btn_category.getText().toString());
+                                if (!(miss.getVisibility() == View.VISIBLE)) {
+                                    appleSnapshot.getRef().child("completed").setValue(complete.getVisibility() == View.VISIBLE);
+                                }
+
                             }
                             finish();
                         }
@@ -272,6 +353,8 @@ public class TaskScreenActivity extends AppCompatActivity implements EditTitle_D
             btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_movie_lite,0,0,0);
         } else if (category.equals("Home")) {
             btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
+        } else if (category.equals("Other")) {
+            btn_category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_other_lite,0,0,0);
         }
     }
 
