@@ -2,6 +2,7 @@ package com.example.todoapp.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TaskListAdapter extends BaseAdapter {
+    private static final String TAG = "TaskListAdapter";
     private ArrayList<Task> listData;
     private Context context;
     private LayoutInflater li;
@@ -47,7 +49,7 @@ public class TaskListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
-        if (view == null) {
+//        if (view == null) {
             view = li.inflate(R.layout.task_item_layout, viewGroup, false);
 
             holder = new ViewHolder();
@@ -58,13 +60,12 @@ public class TaskListAdapter extends BaseAdapter {
             holder.complete =  (View) view.findViewById(R.id.view_done);
             holder.notComplete =  (View) view.findViewById(R.id.view_ellipse);
             holder.miss =  (View) view.findViewById(R.id.view_miss);
-        }
-        else {
-            holder = (ViewHolder) view.getTag();
-        }
+//        }
+//        else {
+//            holder = (ViewHolder) view.getTag();
+//        }
 
         Task model = listData.get(i);
-
         holder.title.setText(model.getTitle());
         holder.time.setText(model.getEndDate());
         holder.priority.setText(String.valueOf(model.getPriority()));
