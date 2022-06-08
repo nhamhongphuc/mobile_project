@@ -1,16 +1,22 @@
 package com.example.todoapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.example.todoapp.R;
 import com.example.todoapp.model.Task;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TaskListAdapter extends BaseAdapter {
     private ArrayList<Task> listData;
@@ -49,12 +55,16 @@ public class TaskListAdapter extends BaseAdapter {
             holder.time = (TextView) view.findViewById(R.id.tv_time);
             holder.priority = (TextView) view.findViewById(R.id.tv_priority);
             holder.category = (TextView) view.findViewById(R.id.tv_category);
+            holder.complete =  (View) view.findViewById(R.id.view_done);
+            holder.notComplete =  (View) view.findViewById(R.id.view_ellipse);
+            holder.miss =  (View) view.findViewById(R.id.view_miss);
         }
         else {
             holder = (ViewHolder) view.getTag();
         }
 
         Task model = listData.get(i);
+
         holder.title.setText(model.getTitle());
         holder.time.setText(model.getEndDate());
         holder.priority.setText(String.valueOf(model.getPriority()));
@@ -90,6 +100,35 @@ public class TaskListAdapter extends BaseAdapter {
         } else if (model.getCategory().equals("Home")) {
             holder.category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_home_lite,0,0,0);
             holder.category.setBackground(context.getResources().getDrawable(R.drawable.back_home_xml));
+        } else if (model.getCategory().equals("Other")) {
+            holder.category.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_other_lite,0,0,0);
+            holder.category.setBackground(context.getResources().getDrawable(R.drawable.back_other_xml));
+        }
+
+        if (model.isCompleted()) {
+            holder.title.setTextColor(ContextCompat.getColor(context, R.color.gray));
+            holder.time.setTextColor(ContextCompat.getColor(context, R.color.gray));
+            holder.priority.setTextColor(ContextCompat.getColor(context, R.color.gray));
+            holder.complete.setVisibility(View.VISIBLE);
+            holder.notComplete.setVisibility(View.INVISIBLE);
+            holder.miss.setVisibility(View.INVISIBLE);
+        } else {
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = sdf.parse(model.getEndDate());
+                Date curDate = sdf.parse(sdf.format(new Date()));
+                if (date.before(curDate)) {
+                    holder.title.setTextColor(ContextCompat.getColor(context, R.color.gray));
+                    holder.time.setTextColor(ContextCompat.getColor(context, R.color.gray));
+                    holder.priority.setTextColor(ContextCompat.getColor(context, R.color.gray));
+                    holder.complete.setVisibility(View.INVISIBLE);
+                    holder.notComplete.setVisibility(View.INVISIBLE);
+                    holder.miss.setVisibility(View.VISIBLE);
+
+                }
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
+            }
         }
 
         return view;
@@ -100,5 +139,8 @@ public class TaskListAdapter extends BaseAdapter {
         private TextView time;
         private TextView priority;
         private TextView category;
+        private View complete;
+        private View notComplete;
+        private View miss;
     }
 }

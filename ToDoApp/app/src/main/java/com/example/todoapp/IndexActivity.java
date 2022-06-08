@@ -16,6 +16,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
 import com.example.todoapp.dialog.AddTask_Dialog;
+import com.example.todoapp.dialog.EditTitle_Dialog;
+import com.example.todoapp.dialog.TaskComplete_Dialog;
 import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,6 +84,36 @@ public class IndexActivity extends AppCompatActivity {
                 intent.putExtra("end", task.getEndDate());
                 intent.putExtra("category", task.getCategory());
                 startActivity(intent);
+            }
+        });
+
+        lv_task.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (search_bar.getText().toString().equals("")) {
+                    if (!Tasks.get(i).isCompleted()) {
+                        FragmentManager fm = getSupportFragmentManager();
+                        TaskComplete_Dialog dialog = new TaskComplete_Dialog();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("title", Tasks.get(i).getTitle());
+                        dialog.setArguments(bundle);
+
+                        dialog.show(fm, null);
+                    }
+                } else {
+                    if (!Tasks.get(i).isCompleted()) {
+                        FragmentManager fm = getSupportFragmentManager();
+                        TaskComplete_Dialog dialog = new TaskComplete_Dialog();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("title", tmp_Tasks.get(i).getTitle());
+                        dialog.setArguments(bundle);
+
+                        dialog.show(fm, null);
+                    }
+                }
+
+                return true;
             }
         });
 

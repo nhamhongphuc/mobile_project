@@ -18,6 +18,29 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_ellipse_15" />
 
+    <View
+        android:id="@+id/view_done"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_done"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/view_miss"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_miss"
+        android:visibility="invisible"
+        android:clickable="false"/>
+
     <TextView
         android:id="@+id/tv_note_title"
         android:layout_width="wrap_content"
@@ -47,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_alignParentEnd="false"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="35dp"
         android:layout_toEndOf="@id/tv_time"
         android:background="@drawable/btn_color"
@@ -61,15 +84,14 @@
 
     <TextView
         android:id="@+id/tv_priority"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_alignParentEnd="false"
-        android:layout_marginStart="20dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:layout_toEndOf="@id/tv_category"
         android:background="@drawable/back_purple_xml"
         android:drawablePadding="5dp"
+        android:minWidth="100dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/priority"

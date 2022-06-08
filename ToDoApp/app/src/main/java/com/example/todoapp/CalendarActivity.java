@@ -39,7 +39,6 @@ public class CalendarActivity extends AppCompatActivity {
     private DayScrollDatePicker dayDatePicker;
     private String SelectedDate;
     private View view_index;
-    private Button btn_today;
     private ListView lv_task;
     private String CurrentDate;
     static ArrayList<Task> Tasks = new ArrayList<>();
@@ -53,7 +52,7 @@ public class CalendarActivity extends AppCompatActivity {
 
         lv_task=(ListView) this.findViewById(R.id.lstview_calendar);
         dayDatePicker = findViewById(R.id.dayDatePicker);
-        dayDatePicker.setStartDate(12, 5, 2022);
+        dayDatePicker.setStartDate(1, 6, 2022);
         dayDatePicker.getSelectedDate(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@Nullable Date date) {
@@ -74,16 +73,6 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
-        btn_today = (Button) findViewById(R.id.btn_today);
-        btn_today.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                Calendar c = Calendar.getInstance();
-                CurrentDate = sdf.format(c.getTime());
-                Toast.makeText(CalendarActivity.this,CurrentDate,Toast.LENGTH_SHORT);
-            }
-        });
 
     }
 
@@ -105,7 +94,6 @@ public class CalendarActivity extends AppCompatActivity {
                     lv_task.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                 }
-
             }
 
             @Override

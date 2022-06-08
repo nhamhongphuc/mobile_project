@@ -90,21 +90,6 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_completed"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/view7"
-        android:layout_alignBottom="@+id/view7"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="5dp"
-        android:background="#ACA8A8"
-        android:text="Completed"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
-
     <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
         android:id="@+id/dayDatePicker"
         android:layout_width="match_parent"
@@ -112,31 +97,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="533dp"
         android:background="#787070" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_today"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/view7"
-        android:layout_alignBottom="@+id/view7"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="6dp"
-        android:background="#3F51B5"
-        android:text="Today"
-        android:textAllCaps="false"
-        android:textColor="#fff" />
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="366dp"
-        android:layout_height="67dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="443dp"
-        android:background="#BFBDBD" />
 
     <TextView
         android:id="@+id/textView19"
@@ -155,7 +115,7 @@
     <ListView
         android:id="@+id/lstview_calendar"
         android:layout_width="381dp"
-        android:layout_height="310dp"
+        android:layout_height="400dp"
         android:layout_above="@+id/view_navbar"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="14dp"

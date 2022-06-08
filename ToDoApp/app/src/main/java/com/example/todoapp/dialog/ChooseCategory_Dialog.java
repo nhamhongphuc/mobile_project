@@ -55,7 +55,7 @@ public class ChooseCategory_Dialog extends DialogFragment {
         r8 = (RadioButton) view.findViewById(R.id.radio_health);
         r9 = (RadioButton) view.findViewById(R.id.radio_movie);
         r10 = (RadioButton) view.findViewById(R.id.radio_home);
-        r11 = (RadioButton) view.findViewById(R.id.radio_new);
+        r11 = (RadioButton) view.findViewById(R.id.radio_other);
 
         btn_edit = (Button) view.findViewById(R.id.btn_edit);
 
@@ -118,6 +118,12 @@ public class ChooseCategory_Dialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 handleClickCategory(title, desc, priority, date, "Home");
+            }
+        });
+        r11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickCategory(title, desc, priority, date, "Other");
             }
         });
 
