@@ -16,7 +16,6 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
 import com.example.todoapp.dialog.AddTask_Dialog;
-import com.example.todoapp.dialog.EditTitle_Dialog;
 import com.example.todoapp.dialog.TaskComplete_Dialog;
 import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;

@@ -5,6 +5,20 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
+    <View
+        android:id="@+id/view_add"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/view_navbar"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="610dp"
+        android:layout_marginBottom="-33dp"
+        android:background="@drawable/ic_add"
+        android:translationZ="90dp"
+        android:visibility="visible" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/view_navbar"
         android:layout_width="match_parent"
@@ -92,9 +106,10 @@
 
     <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
         android:id="@+id/dayDatePicker"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="533dp"
         android:background="#787070" />
 
@@ -112,13 +127,36 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
+    <View
+        android:id="@+id/view_img"
+        android:layout_width="227dp"
+        android:layout_height="227dp"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_above="@id/view_navbar"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/ic_checklist_rafiki_1" />
+
+    <TextView
+        android:id="@+id/tv_what"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="140dp"
+        android:layout_above="@id/view_navbar"
+        android:text="Nothing to do in this day?"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
     <ListView
         android:id="@+id/lstview_calendar"
-        android:layout_width="381dp"
-        android:layout_height="400dp"
-        android:layout_above="@+id/view_navbar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="29dp" />
+        android:layout_width="350dp"
+        android:layout_height="410dp"
+        android:layout_above="@id/view_navbar"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>
