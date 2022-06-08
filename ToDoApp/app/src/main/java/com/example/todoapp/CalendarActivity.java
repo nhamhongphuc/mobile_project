@@ -35,18 +35,20 @@ import java.util.Locale;
 
 
 public class CalendarActivity extends AppCompatActivity {
+    private static final String TAG = "CalendarActivity";
     private DayScrollDatePicker dayDatePicker;
     private String SelectedDate;
     private View view_index;
     private Button btn_today;
     private ListView lv_task;
     private String CurrentDate;
-    static ArrayList<Task> Tasks = new ArrayList<>();;
+    static ArrayList<Task> Tasks = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         lv_task=(ListView) this.findViewById(R.id.lstview_calendar);
@@ -93,13 +95,12 @@ public class CalendarActivity extends AppCompatActivity {
         dailyTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Tasks.clear();
+                List.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     Task task = item.getValue(Task.class);
                     List.add(task);
                 }
                 if (List.size() > 0) {
-
                     final TaskListAdapter adapter = new TaskListAdapter(CalendarActivity.this, List);
                     lv_task.setAdapter(adapter);
                     adapter.notifyDataSetChanged();

@@ -92,8 +92,6 @@ public class TaskListAdapter extends BaseAdapter {
             holder.category.setBackground(context.getResources().getDrawable(R.drawable.back_home_xml));
         }
 
-
-
         return view;
     }
 
