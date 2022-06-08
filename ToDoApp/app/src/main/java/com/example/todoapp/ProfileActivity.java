@@ -40,19 +40,21 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView profileImageView;
     private TextView changeImageTV;
     private static final String TAG = "ProfileActivity";
-    FirebaseStorage storage;
     StorageReference storageReference;
-
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
         profileImageView = findViewById(R.id.img_profile);
         changeImageTV = findViewById(R.id.tv_changeaccountimage);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+        fAuth = FirebaseAuth.getInstance();
+        fStore= FirebaseFirestore.getInstance();
+        storageReference=FirebaseStorage.getInstance().getReference();
 
-        StorageReference profileRef= storageReference.child("profile.jpg"); // lay hinh tu store
+        StorageReference profileRef= storageReference.child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg"); // lay hinh tu store
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -83,16 +85,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void uploadImageToFirebase(Uri imageUri) {
-        profileImageView.setImageURI(imageUri);
-            /*final StorageReference fileRef = storageReference.child("users/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/profile.jpg");
-            fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener) (uri) -> {
-                Picasso.get().load(imageUri).into(profileImageView);
-            });*/
 
+            final StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg");
 
-            storageReference = FirebaseStorage.getInstance().getReference().child("profile.jpg");
-
-            storageReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
