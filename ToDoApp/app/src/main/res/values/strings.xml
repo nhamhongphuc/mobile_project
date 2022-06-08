@@ -55,4 +55,5 @@
     <string name="email">Email</string>
     <string name="send_mail">Send mail</string>
     <string name="enter_your_email_to_reset_password">Enter your email to reset password</string>
+    <string name="log_out">Log out</string>
 </resources>
