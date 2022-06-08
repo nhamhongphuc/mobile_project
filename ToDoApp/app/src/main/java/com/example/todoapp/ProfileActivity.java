@@ -39,21 +39,60 @@ import java.util.Date;
 public class ProfileActivity extends AppCompatActivity {
     private ImageView profileImageView;
     private TextView changeImageTV;
+    private TextView profileName;
+    private View viewNote,viewCalendar,viewIndex;
     private static final String TAG = "ProfileActivity";
     StorageReference storageReference;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
         profileImageView = findViewById(R.id.img_profile);
         changeImageTV = findViewById(R.id.tv_changeaccountimage);
+        profileName = findViewById(R.id.profile_name);
+
+        //Dieu huong
+        viewNote = findViewById(R.id.view_note);
+        viewCalendar = findViewById(R.id.view_calender);
+        viewIndex = findViewById(R.id.view_index);
+        //Dieu Huong
+        viewNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),NoteActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        viewCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        viewIndex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),IndexActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //Firebase va storage
         fAuth = FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         storageReference=FirebaseStorage.getInstance().getReference();
+        //Firebase va storage
 
+
+        //Doi Anh Dai dien
+        profileName.setText(fAuth.getCurrentUser().getDisplayName());
         StorageReference profileRef= storageReference.child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg"); // lay hinh tu store
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -79,6 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (requestCode == 1000) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri imageUri = data.getData();
+                profileImageView.setImageURI(imageUri);
                 uploadImageToFirebase(imageUri);
             }
         }
@@ -86,28 +126,42 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadImageToFirebase(Uri imageUri) {
 
-            final StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        StorageReference fileRef = storageReference.child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg");
 
             fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Picasso.get().load(uri).into(profileImageView);
-                        }
-                    });
+                    Toast.makeText(ProfileActivity.this,"ProfilePicUpdated",Toast.LENGTH_SHORT).show();
+
                 }
-            }).addOnFailureListener(new OnFailureListener() {
+                    })
+            .addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(ProfileActivity.this,"Failed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this,"UpdatedFailed",Toast.LENGTH_SHORT).show();
                 }
             });
 
 
         }
+// Doi Ten
+    public void updateName(){
+FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+            .setDisplayName("Jane Q. User")
+            .build();
+
+user.updateProfile(profileUpdates)
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "User profile updated.");
+                    }
+                }
+            });
+    }
         }
 
 

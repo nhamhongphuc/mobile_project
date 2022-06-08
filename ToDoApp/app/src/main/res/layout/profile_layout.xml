@@ -34,7 +34,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_home" />
+            android:background="@drawable/ic_home_2" />
 
         <TextView
             android:id="@+id/tv_index_nav"
@@ -91,7 +91,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="350dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_user" />
+            android:background="@drawable/ic_user_clicked" />
 
         <TextView
             android:id="@+id/tv_user"
@@ -275,7 +275,7 @@
         android:id="@+id/tv_taskdone"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/profile_name"
         android:layout_alignParentStart="true"
         android:layout_marginStart="222dp"
         android:layout_marginTop="15dp"
@@ -290,35 +290,36 @@
         android:id="@+id/tv_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="169dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginEnd="170dp"
         android:text="Profile"
         android:textColor="@color/white"
         android:textSize="25sp" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_profile"
-        android:layout_width="78dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="75dp"
         android:layout_below="@+id/tv_profile"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="166dp"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="167dp"
-        android:background="#DF9C9C"
-        tools:srcCompat="@drawable/ic_avatar_default_svgrepo_com" />
+        android:layout_marginEnd="149dp"
+        tools:srcCompat="@drawable/back_design_xml" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_profile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Martha Hays"
+        android:text="ProfileName"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -326,7 +327,7 @@
         android:id="@+id/tv_taskleft"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/profile_name"
         android:layout_alignParentStart="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="15dp"
