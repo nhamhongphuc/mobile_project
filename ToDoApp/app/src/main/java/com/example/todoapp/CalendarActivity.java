@@ -1,20 +1,22 @@
 package com.example.todoapp;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
+import com.example.todoapp.dialog.AddTask_Dialog;
 import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,20 +28,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker;
 import com.harrywhewell.scrolldatepicker.OnDateSelectedListener;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.Date;
 
 
 public class CalendarActivity extends AppCompatActivity {
     private static final String TAG = "CalendarActivity";
+    private View add;
+    private View view_img;
+    private TextView tv_what;
     private DayScrollDatePicker dayDatePicker;
     private String SelectedDate;
     private View view_index;
-    private Button btn_today;
+    private View view_note;
     private ListView lv_task;
     private String CurrentDate;
     static ArrayList<Task> Tasks = new ArrayList<>();
@@ -52,16 +55,38 @@ public class CalendarActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         lv_task=(ListView) this.findViewById(R.id.lstview_calendar);
+        view_img = (View) this.findViewById(R.id.view_img);
+        tv_what = (TextView) this.findViewById(R.id.tv_what);
         dayDatePicker = findViewById(R.id.dayDatePicker);
-        dayDatePicker.setStartDate(12, 5, 2022);
+        view_note = (View) this.findViewById(R.id.view_note);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        this.SelectedDate = dateFormat.format(date).toString();
+
+        synchronized (this){
+            readData(user, Tasks);
+        }
+
+        dayDatePicker.setStartDate(1, 6, 2022);
         dayDatePicker.getSelectedDate(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@Nullable Date date) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 SelectedDate= sdf.format(date);
+                view_img.setVisibility(View.VISIBLE);
+                tv_what.setVisibility(View.VISIBLE);
                 synchronized (this){
                     readData(user, Tasks);
                 }
+            }
+        });
+
+        add = (View) this.findViewById(R.id.view_add);
+        this.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonOpenDialogClicked();
             }
         });
 
@@ -73,18 +98,19 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        btn_today = (Button) findViewById(R.id.btn_today);
-        btn_today.setOnClickListener(new View.OnClickListener() {
+        view_note.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                Calendar c = Calendar.getInstance();
-                CurrentDate = sdf.format(c.getTime());
-                Toast.makeText(CalendarActivity.this,CurrentDate,Toast.LENGTH_SHORT);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NoteActivity.class);
+                startActivity(intent);
             }
         });
+    }
 
+    private void buttonOpenDialogClicked() {
+        FragmentManager fm = getSupportFragmentManager();
+        AddTask_Dialog dialog = new AddTask_Dialog();
+        dialog.show(fm, null);
     }
 
     synchronized void readData (FirebaseUser user, ArrayList<Task> List) {
@@ -95,17 +121,17 @@ public class CalendarActivity extends AppCompatActivity {
         dailyTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List.clear();
+                Tasks.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     Task task = item.getValue(Task.class);
                     List.add(task);
                 }
                 if (List.size() > 0) {
+                    view_img.setVisibility(View.INVISIBLE);
+                    tv_what.setVisibility(View.INVISIBLE);
                     final TaskListAdapter adapter = new TaskListAdapter(CalendarActivity.this, List);
                     lv_task.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
                 }
-
             }
 
             @Override

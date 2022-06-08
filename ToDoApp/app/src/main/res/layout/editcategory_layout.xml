@@ -342,16 +342,16 @@
                     android:layout_width="137dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <RadioButton
-                        android:id="@+id/radio_new"
+                        android:id="@+id/radio_other"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:layout_marginLeft="35dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/ic_create_new"
+                        android:background="@drawable/ic_other"
                         android:button="@null"
                         android:gravity="center|center_horizontal|fill_horizontal"
                         android:layoutDirection="rtl" />
@@ -360,7 +360,7 @@
                         android:id="@+id/textView21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Create New"
+                        android:text="Other"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
 

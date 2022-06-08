@@ -51,7 +51,7 @@ public class DeleteNote_Dialog extends DialogFragment {
         String title = getArguments().getString("title", "");
         String desc = getArguments().getString("desc", "");
         tv_title = (TextView) view.findViewById(R.id.tv_title);
-        btn_del = (Button) view.findViewById(R.id.btn_delete);
+        btn_del = (Button) view.findViewById(R.id.btn_del);
         btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 
         tv_title.setText("Title: " + title);

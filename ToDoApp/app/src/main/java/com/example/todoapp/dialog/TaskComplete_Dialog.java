@@ -23,12 +23,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class DeleteTask_Dialog extends DialogFragment {
+public class TaskComplete_Dialog extends DialogFragment {
     private TextView tv_title;
-    private Button btn_del;
+    private Button btn_finish;
     private Button btn_cancel;
 
-    public DeleteTask_Dialog() {
+    public TaskComplete_Dialog() {
     }
 
     @Override
@@ -41,7 +41,7 @@ public class DeleteTask_Dialog extends DialogFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.deletetask_dialog, container);
+        return inflater.inflate(R.layout.completetask_dialog, container);
     }
 
     @Override
@@ -49,9 +49,8 @@ public class DeleteTask_Dialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         String title = getArguments().getString("title", "");
-        String desc = getArguments().getString("desc", "");
         tv_title = (TextView) view.findViewById(R.id.tv_title);
-        btn_del = (Button) view.findViewById(R.id.btn_del);
+        btn_finish = (Button) view.findViewById(R.id.btn_del);
         btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 
         tv_title.setText("Title: " + title);
@@ -63,7 +62,7 @@ public class DeleteTask_Dialog extends DialogFragment {
             }
         });
 
-        btn_del.setOnClickListener(new View.OnClickListener() {
+        btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -77,10 +76,9 @@ public class DeleteTask_Dialog extends DialogFragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                            appleSnapshot.getRef().removeValue();
+                            appleSnapshot.getRef().child("completed").setValue(true);
                         }
                         getDialog().dismiss();
-                        getActivity().finish();
                     }
 
                     @Override

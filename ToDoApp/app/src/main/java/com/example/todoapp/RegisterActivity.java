@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         back = (View) this.findViewById(R.id.view_back);
         tv_Login = (TextView) this.findViewById(R.id.tv_login) ;
-        email = (EditText) this.findViewById(R.id.ed_username);
+        email = (EditText) this.findViewById(R.id.ed_email1);
         pass = (EditText) this.findViewById(R.id.ed_password);
         pass_confirm = (EditText) this.findViewById(R.id.ed_confirmpassword);
         btn_register = (Button) this.findViewById(R.id.btn_login);
