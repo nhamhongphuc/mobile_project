@@ -104,7 +104,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_home" />
+            android:background="@drawable/ic_home_clicked" />
 
         <TextView
             android:id="@+id/tv_index_nav"
@@ -126,13 +126,13 @@
             android:background="@drawable/ic_calendar" />
 
         <TextView
-            android:id="@+id/tv_calender"
+            android:id="@+id/tv_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|start"
             android:layout_marginStart="94dp"
             android:layout_marginTop="5dp"
-            android:text="@string/calender"
+            android:text="@string/calendar"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

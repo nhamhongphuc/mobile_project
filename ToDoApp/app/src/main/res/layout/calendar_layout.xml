@@ -54,7 +54,7 @@
             android:background="@drawable/ic_calendar_clicked" />
 
         <TextView
-            android:id="@+id/tv_calender"
+            android:id="@+id/tv_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|start"
@@ -97,8 +97,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|end"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/calender"
+            android:layout_marginEnd="30dp"
+            android:text="User"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -106,12 +106,12 @@
 
     <com.harrywhewell.scrolldatepicker.DayScrollDatePicker
         android:id="@+id/dayDatePicker"
-        android:layout_width="370dp"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="533dp"
-        android:background="#787070" />
+        android:layout_marginBottom="512dp"
+        android:background="#DAEDDA" />
 
     <TextView
         android:id="@+id/textView19"

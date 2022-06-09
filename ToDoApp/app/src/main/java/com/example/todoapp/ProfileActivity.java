@@ -1,10 +1,8 @@
 package com.example.todoapp;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -18,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.dialog.EditName_Dialog;
-import com.example.todoapp.dialog.EditTitle_Dialog;
-import com.example.todoapp.dialog.ForgotPassword_Dialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,25 +23,26 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.OnProgressListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 public class ProfileActivity extends AppCompatActivity implements EditName_Dialog.OnCompleteListener_Name{
     private ImageView profileImageView;
-    private TextView changeImageTV;
+    private TextView tv_changeImage;
     private TextView profileName, tv_changeaccountname;
     private View viewNote,viewCalendar,viewIndex;
     private static final String TAG = "ProfileActivity";
+    private TextView tv_taskLeft;
+    private TextView tv_taskDone;
     StorageReference storageReference;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -55,8 +52,10 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
         profileImageView = findViewById(R.id.img_profile);
-        changeImageTV = findViewById(R.id.tv_changeaccountimage);
+        tv_changeImage = findViewById(R.id.tv_changeaccountimage);
         profileName = findViewById(R.id.profile_name);
+        tv_taskDone=findViewById(R.id.tv_taskdone);
+        tv_taskLeft=findViewById(R.id.tv_taskleft);
 
         //Dieu huong
         viewNote = findViewById(R.id.view_note);
@@ -88,6 +87,29 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
         });
 
+        // Completed va Left task
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String str="";
+                for (DataSnapshot snap: dataSnapshot.getChildren()) {
+                    long a= snap.getChildrenCount();
+                    str=Long.toString(a);
+                }
+                tv_taskDone.setText(str);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        //
+
 
         //Firebase va storage
         fAuth = FirebaseAuth.getInstance();
@@ -106,7 +128,7 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
         });
 
-        changeImageTV.setOnClickListener(new View.OnClickListener() {
+        tv_changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
