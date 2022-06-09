@@ -11,6 +11,21 @@
         android:layout_height="match_parent"
         android:background="@color/background_color" />
 
+    <TextView
+        android:id="@+id/tv_forgotpassword"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login_apple"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center|center_vertical"
+        android:text="Forgot Password?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
     <View
         android:id="@+id/view_back"
         android:layout_width="11dp"
@@ -20,7 +35,7 @@
         android:background="@drawable/ic_vector" />
 
     <TextView
-        android:id="@+id/heading_register"
+        android:id="@+id/heading_forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -36,10 +51,10 @@
         tools:text="Login" />
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/heading_register"
+        android:layout_below="@id/heading_forgotpassword"
         android:layout_alignParentStart="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="50dp"
@@ -49,10 +64,10 @@
         tools:text="Username" />
 
     <EditText
-        android:id="@+id/ed_username"
+        android:id="@+id/ed_email1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_username"
+        android:layout_below="@id/tv_email"
         android:layout_alignParentStart="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="10dp"
@@ -73,7 +88,7 @@
         android:id="@+id/tv_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ed_username"
+        android:layout_below="@id/ed_email1"
         android:layout_alignParentStart="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="20dp"
@@ -172,10 +187,10 @@
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_login_apple"
+        android:layout_below="@+id/tv_forgotpassword"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:text="@string/don_t_have_account"
         android:textColor="@color/white"
@@ -185,9 +200,9 @@
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_login_apple"
+        android:layout_below="@+id/tv_forgotpassword"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@id/tv_info"
         android:text="@string/register"
         android:textColor="@color/white"

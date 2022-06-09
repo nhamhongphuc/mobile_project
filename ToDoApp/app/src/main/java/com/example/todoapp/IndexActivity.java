@@ -79,7 +79,7 @@ public class IndexActivity extends AppCompatActivity {
         lv_task = (ListView) this.findViewById(R.id.lv_note);
         view_calender = (View) this.findViewById(R.id.view_calender);
         view_note = (View) this.findViewById(R.id.view_note);
-
+        view_user = (View) this.findViewById(R.id.view_user);
         synchronized (this){
             readData(user, Tasks);
         }
@@ -183,14 +183,14 @@ public class IndexActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    
 
-    }
-
-    protected void onResume() {
-        //Handle notification about task today
-        super.onResume();
-
+        view_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

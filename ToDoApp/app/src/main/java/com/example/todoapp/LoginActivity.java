@@ -10,10 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.example.todoapp.dialog.EditNote_Dialog;
+import com.example.todoapp.dialog.ForgotPassword_Dialog;
 
 public class LoginActivity extends AppCompatActivity {
     private View back;
     private TextView tv_Register;
+    private TextView tv_ForgotPassword;
     private EditText mail, pass;
     private Button btnlogin;
     @Override
@@ -24,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
 
         back = (View) this.findViewById(R.id.view_back);
         tv_Register = (TextView) this.findViewById(R.id.tv_login) ;
-        mail = (EditText)this.findViewById(R.id.ed_username) ;
+        tv_ForgotPassword = (TextView) this.findViewById(R.id.tv_forgotpassword);
+        mail = (EditText)this.findViewById(R.id.ed_email1) ;
         pass = (EditText)this.findViewById(R.id.ed_password);
         btnlogin=(Button) this.findViewById(R.id.btn_login);
 
@@ -54,6 +60,12 @@ public class LoginActivity extends AppCompatActivity {
                 ToRegister();
             }
         });
+        tv_ForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToForgotPassword();
+            }
+        });
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +82,13 @@ public class LoginActivity extends AppCompatActivity {
     private void ToRegister() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    private void ToForgotPassword() {
+        FragmentManager fm = getSupportFragmentManager ();
+        final ForgotPassword_Dialog dialog = new ForgotPassword_Dialog();
+
+        dialog.show(fm, null);
     }
 
     private void handleLogin(String mail, String pass){
