@@ -1,6 +1,10 @@
 package com.example.todoapp;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,8 +14,11 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
@@ -26,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,11 +55,22 @@ public class IndexActivity extends AppCompatActivity {
     private View view_note;
     private View view_user;
 
+    public String CHANNEL_ID_1 = "Default_1";
+    public int notificationId_1 = 1;
+
+    public String fromLogin;
+    public boolean first = true;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index_layout);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Bundle data = getIntent().getExtras();
+        fromLogin = "";
+        if (data != null) {
+            fromLogin = data.getString("login");
+        }
+
 
         view_img = (View) this.findViewById(R.id.view_img);
         tv_what = (TextView) this.findViewById(R.id.tv_what);
@@ -164,6 +183,7 @@ public class IndexActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         view_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -171,6 +191,7 @@ public class IndexActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void buttonOpenDialogClicked() {
@@ -201,6 +222,50 @@ public class IndexActivity extends AppCompatActivity {
                     tv_add.setVisibility(View.INVISIBLE);
                     search_bar.setVisibility(View.VISIBLE);
                     lv_task.setVisibility(View.VISIBLE);
+
+                    if (fromLogin.equals("login") && first) {
+                        int count = 0;
+                        try {
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+
+                            Date curDate = sdf.parse(sdf.format(new Date()));
+                            for (int i = 0; i < List.size(); i++) {
+                                Date date = sdf.parse(List.get(i).getEndDate());
+                                Log.e(TAG, "onCreate: " + date.equals(curDate), null);
+                                if (date.equals(curDate) && !List.get(i).isCompleted()) {
+                                    count += 1;
+                                }
+                            }
+
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                            createNotificationChannel();
+
+                            // Create an explicit intent for an Activity in your app
+                            Intent intent = new Intent();
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            PendingIntent pendingIntent = PendingIntent.getActivity(IndexActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+                            NotificationCompat.Builder builder = new NotificationCompat.Builder(IndexActivity.this, CHANNEL_ID_1)
+                                    .setSmallIcon(R.drawable.ic_notification_icon)
+                                    .setContentTitle("Just Do It")
+                                    .setContentText(count == 0 ? "You don't have any task Today!"
+                                            : (count > 1 ? "You have " + count + " tasks to complete today!"
+                                            : "You have a task to complete today!"))
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setContentIntent(pendingIntent)
+                                    .setAutoCancel(true);
+
+                            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(IndexActivity.this);
+
+                            // notificationId is a unique int for each notification that you must define
+                            notificationManager.notify(notificationId_1, builder.build());
+
+
+                        first = false;
+                    }
 
                     for (int i = 0; i < List.size() - 1 ; i++) {
                         for (int j = i+1; j <List.size(); j++) {
@@ -246,6 +311,28 @@ public class IndexActivity extends AppCompatActivity {
                     tv_add.setVisibility(View.VISIBLE);
                     search_bar.setVisibility(View.INVISIBLE);
                     lv_task.setVisibility(View.INVISIBLE);
+
+                    createNotificationChannel();
+
+                    // Create an explicit intent for an Activity in your app
+                    Intent intent = new Intent();
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(IndexActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(IndexActivity.this, CHANNEL_ID_1)
+                            .setSmallIcon(R.drawable.ic_notification_icon)
+                            .setContentTitle("Just Do It")
+                            .setContentText("You don't have any task Today!")
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(true);
+
+
+                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(IndexActivity.this);
+
+                    // notificationId is a unique int for each notification that you must define
+                    notificationManager.notify(notificationId_1, builder.build());
                 }
 
             }
@@ -255,6 +342,22 @@ public class IndexActivity extends AppCompatActivity {
                 Log.e(TAG, "Read data failed: " + databaseError.getMessage(),null );
             }
         });
+    }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID_1, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
 }
