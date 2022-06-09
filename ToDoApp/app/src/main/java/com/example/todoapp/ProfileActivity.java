@@ -15,7 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.todoapp.dialog.EditName_Dialog;
+import com.example.todoapp.dialog.ForgotPassword_Dialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +42,7 @@ import java.util.Date;
 public class ProfileActivity extends AppCompatActivity {
     private ImageView profileImageView;
     private TextView changeImageTV;
-    private TextView profileName;
+    private TextView profileName, tv_changeaccountname;
     private View viewNote,viewCalendar,viewIndex;
     private static final String TAG = "ProfileActivity";
     StorageReference storageReference;
@@ -58,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
         viewNote = findViewById(R.id.view_note);
         viewCalendar = findViewById(R.id.view_calender);
         viewIndex = findViewById(R.id.view_index);
+        tv_changeaccountname = findViewById(R.id.tv_changeaccountname);
         //Dieu Huong
         viewNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +113,21 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
         });
+        // edit name dialog
+        tv_changeaccountname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToEditName();
+            }
+        });
+
+    }
+
+    private void ToEditName() {
+        FragmentManager fm = getSupportFragmentManager ();
+        final EditName_Dialog dialog = new EditName_Dialog();
+
+        dialog.show(fm, null);
 
     }
 
@@ -145,23 +164,22 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
 // Doi Ten
-    public void updateName(){
-FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-            .setDisplayName("Jane Q. User")
-            .build();
-
-user.updateProfile(profileUpdates)
-            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "User profile updated.");
-                    }
-                }
-            });
-    }
-        }
+//    public void updateName(){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//            .setDisplayName("Jane Q. User")
+//            .build();
+//        user.updateProfile(profileUpdates)
+//            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Log.d(TAG, "User profile updated.");
+//                }
+//            }
+//        });
+//    }
+}
 
 
