@@ -43,17 +43,15 @@ public class NoteListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         NoteListAdapter.ViewHolder holder;
-        if (view == null) {
+
             view = li.inflate(R.layout.note_item_layout, viewGroup, false);
 
             holder = new NoteListAdapter.ViewHolder();
             holder.title = (TextView) view.findViewById(R.id.tv_note_title);
             holder.time = (TextView) view.findViewById(R.id.tv_time);
             holder.desc = (TextView) view.findViewById(R.id.tv_desc);
-        }
-        else {
-            holder = (NoteListAdapter.ViewHolder) view.getTag();
-        }
+
+
         Note model = listData.get(i);
         holder.title.setText(model.getTitle());
         holder.time.setText(model.getCreatedDate());

@@ -231,7 +231,6 @@ public class IndexActivity extends AppCompatActivity {
                             Date curDate = sdf.parse(sdf.format(new Date()));
                             for (int i = 0; i < List.size(); i++) {
                                 Date date = sdf.parse(List.get(i).getEndDate());
-                                Log.e(TAG, "onCreate: " + date.equals(curDate), null);
                                 if (date.equals(curDate) && !List.get(i).isCompleted()) {
                                     count += 1;
                                 }
