@@ -43,10 +43,11 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
     private static final String TAG = "ProfileActivity";
     private TextView tv_taskLeft;
     private TextView tv_taskDone;
+    private TextView tv_logOut;
     StorageReference storageReference;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +57,42 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
         profileName = findViewById(R.id.profile_name);
         tv_taskDone=findViewById(R.id.tv_taskdone);
         tv_taskLeft=findViewById(R.id.tv_taskleft);
+        tv_logOut = findViewById(R.id.tv_Logout);
 
-        //Dieu huong
+        //Dieu huong <<
         viewNote = findViewById(R.id.view_note);
         viewCalendar = findViewById(R.id.view_calender);
         viewIndex = findViewById(R.id.view_index);
         tv_changeaccountname = findViewById(R.id.tv_changeaccountname);
-        //Dieu Huong
+        //Dieu Huong >>
+
+        tv_logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               fAuth = FirebaseAuth.getInstance();
+               fAuth.signOut();
+               Intent intent = new Intent (getApplicationContext(),LoginActivity.class);
+               startActivity(intent);
+               finish();
+            }
+        });
+        //<<Hien thi ten Profile
+        if(user.getDisplayName()== null)
+        {
+            profileName.setText(user.getEmail());
+        }
+        else
+            profileName.setText(user.getDisplayName());
+        ;
+       viewNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),NoteActivity.class);
+                startActivity(intent);
+            }
+        });
+        //Hien thi ten Profile >>
+
         viewNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
         });
 
-        // Completed va Left task
+        // Completed va Left task <<
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
@@ -111,22 +141,28 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
         //
 
 
-        //Firebase va storage
+        //Firebase va storage <<
         fAuth = FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         storageReference=FirebaseStorage.getInstance().getReference();
-        //Firebase va storage
+        //Firebase va storage>>
 
 
-        //Doi Anh Dai dien
-        profileName.setText(fAuth.getCurrentUser().getDisplayName());
-        StorageReference profileRef= storageReference.child("user/"+ fAuth.getCurrentUser().getUid()+"/profile.jpg"); // lay hinh tu store
-        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profileImageView);
-            }
-        });
+        //Doi Anh Dai dien<<
+        if(user.getPhotoUrl()== null)
+        {
+           profileImageView.setImageResource(R.drawable.ic_user);
+        }
+        else {
+            StorageReference profileRef = storageReference.child("user/" + fAuth.getCurrentUser().getUid() + "/profile.jpg"); // lay hinh tu store
+            profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Picasso.get().load(uri).into(profileImageView);
+                }
+
+            });
+        }
 
         tv_changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,13 +172,16 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
 
         });
-        // edit name dialog
+        //Doi Anh Dai dien >>
+
+        // edit name dialog<<
         tv_changeaccountname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ToEditName();
             }
         });
+        // edit name dialog>>
 
     }
 
@@ -205,6 +244,9 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
         });
     }
+
+
+
 // Doi Ten
 //    public void updateName(){
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
