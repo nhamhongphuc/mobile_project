@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.adapter.TaskListAdapter;
 import com.example.todoapp.dialog.AddTask_Dialog;
+import com.example.todoapp.dialog.TaskComplete_Dialog;
 import com.example.todoapp.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,6 +83,40 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
 
+        lv_task.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Task task = Tasks.get(i);
+
+                Intent intent = new Intent(getApplicationContext(), TaskScreenActivity.class);
+                intent.putExtra("title", task.getTitle());
+                intent.putExtra("desc", task.getDescription());
+                intent.putExtra("priority", task.getPriority());
+                intent.putExtra("comp", task.isCompleted());
+                intent.putExtra("start", task.getStartDate());
+                intent.putExtra("end", task.getEndDate());
+                intent.putExtra("category", task.getCategory());
+                startActivity(intent);
+            }
+        });
+
+        lv_task.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (!Tasks.get(i).isCompleted()) {
+                    FragmentManager fm = getSupportFragmentManager();
+                    TaskComplete_Dialog dialog = new TaskComplete_Dialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", Tasks.get(i).getTitle());
+                    dialog.setArguments(bundle);
+
+                    dialog.show(fm, null);
+                }
+
+                return true;
+            }
+        });
+
         add = (View) this.findViewById(R.id.view_add);
         this.add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +156,7 @@ public class CalendarActivity extends AppCompatActivity {
         dailyTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Tasks.clear();
+                List.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     Task task = item.getValue(Task.class);
                     List.add(task);
@@ -129,8 +164,14 @@ public class CalendarActivity extends AppCompatActivity {
                 if (List.size() > 0) {
                     view_img.setVisibility(View.INVISIBLE);
                     tv_what.setVisibility(View.INVISIBLE);
+                    lv_task.setVisibility(View.VISIBLE);
                     final TaskListAdapter adapter = new TaskListAdapter(CalendarActivity.this, List);
                     lv_task.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    view_img.setVisibility(View.VISIBLE);
+                    tv_what.setVisibility(View.VISIBLE);
+                    lv_task.setVisibility(View.INVISIBLE);
                 }
             }
 
