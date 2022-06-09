@@ -44,6 +44,7 @@ public class CalendarActivity extends AppCompatActivity {
     private String SelectedDate;
     private View view_index;
     private View view_note;
+    private View view_user;
     private ListView lv_task;
     private String CurrentDate;
     static ArrayList<Task> Tasks = new ArrayList<>();
@@ -60,6 +61,7 @@ public class CalendarActivity extends AppCompatActivity {
         tv_what = (TextView) this.findViewById(R.id.tv_what);
         dayDatePicker = findViewById(R.id.dayDatePicker);
         view_note = (View) this.findViewById(R.id.view_note);
+        view_user = (View) this.findViewById(R.id.view_user);
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
@@ -140,7 +142,16 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        view_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     private void buttonOpenDialogClicked() {
         FragmentManager fm = getSupportFragmentManager();
