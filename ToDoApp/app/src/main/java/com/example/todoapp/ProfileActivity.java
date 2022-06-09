@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.todoapp.dialog.ChangePassword_Dialog;
 import com.example.todoapp.dialog.EditName_Dialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -37,7 +38,11 @@ import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends AppCompatActivity implements EditName_Dialog.OnCompleteListener_Name{
     private ImageView profileImageView;
+
     private TextView tv_changeImage;
+
+    private TextView changeImageTV, tv_changaccountpassword;
+
     private TextView profileName, tv_changeaccountname;
     private View viewNote,viewCalendar,viewIndex;
     private static final String TAG = "ProfileActivity";
@@ -62,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
         viewCalendar = findViewById(R.id.view_calender);
         viewIndex = findViewById(R.id.view_index);
         tv_changeaccountname = findViewById(R.id.tv_changeaccountname);
+        tv_changaccountpassword = findViewById(R.id.tv_changaccountpassword);
         //Dieu Huong
         viewNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +150,14 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
             }
         });
 
+        //chang password dialog
+        tv_changaccountpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToChangePassword();
+            }
+        });
+
     }
 
     private void ToEditName() {
@@ -151,7 +165,12 @@ public class ProfileActivity extends AppCompatActivity implements EditName_Dialo
         final EditName_Dialog dialog = new EditName_Dialog();
 
         dialog.show(fm, null);
+    }
 
+    private void ToChangePassword(){
+        FragmentManager fm = getSupportFragmentManager();
+        final ChangePassword_Dialog dialog = new ChangePassword_Dialog();
+        dialog.show(fm, null);
     }
 
     @Override
