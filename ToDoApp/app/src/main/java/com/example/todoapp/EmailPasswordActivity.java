@@ -109,6 +109,7 @@ public class EmailPasswordActivity extends Activity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                             Intent intent = new Intent(getApplicationContext(), IndexActivity.class);
+                            intent.putExtra("login", "login");
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
