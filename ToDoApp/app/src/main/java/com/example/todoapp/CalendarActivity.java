@@ -46,7 +46,6 @@ public class CalendarActivity extends AppCompatActivity {
     private View view_note;
     private View view_user;
     private ListView lv_task;
-    private String CurrentDate;
     static ArrayList<Task> Tasks = new ArrayList<>();
 
     @Override
