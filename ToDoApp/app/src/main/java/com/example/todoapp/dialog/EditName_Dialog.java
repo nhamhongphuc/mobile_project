@@ -1,5 +1,6 @@
 package com.example.todoapp.dialog;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -56,7 +57,7 @@ public class EditName_Dialog extends DialogFragment{
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateName(ed_nameafterchange.getText().toString());
+                onSendUpdateData(ed_nameafterchange.getText().toString());
                 Toast.makeText(getContext(), "Update completed!", Toast.LENGTH_SHORT).show();
                 getDialog().dismiss();
             }
@@ -75,21 +76,45 @@ public class EditName_Dialog extends DialogFragment{
         return inflater.inflate(R.layout.editname_dialog, container);
     }
 
-    public void updateName(String NewName){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(NewName)
-                .build();
-
-        user.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "User profile updated.");
-                        }
-                    }
-                });
+    public interface OnCompleteListener_Name {
+        public abstract void onComplete_Name(String NewName);
     }
+    public void onSendUpdateData(String NewName) {
+        this.mListener.onComplete_Name(NewName);
+    }
+
+    private OnCompleteListener_Name mListener;
+
+    // make sure the Activity implemented it
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            this.mListener = (OnCompleteListener_Name)activity;
+        }
+        catch (final ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+
 }
+//    public void updateName(String NewName){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//                .setDisplayName(NewName)
+//                .build();
+//
+//        user.updateProfile(profileUpdates)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "User profile updated.");
+//                        }
+//                    }
+//                });
+//    }
+//}

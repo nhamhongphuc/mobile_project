@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.todoapp.dialog.EditName_Dialog;
+import com.example.todoapp.dialog.EditTitle_Dialog;
 import com.example.todoapp.dialog.ForgotPassword_Dialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,7 +40,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements EditName_Dialog.OnCompleteListener_Name{
     private ImageView profileImageView;
     private TextView changeImageTV;
     private TextView profileName, tv_changeaccountname;
@@ -163,6 +164,25 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         }
+
+    @Override
+    public void onComplete_Name(String NewName) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+            .setDisplayName(NewName)
+            .build();
+        user.updateProfile(profileUpdates)
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "User profile updated.");
+                    profileName.setText(fAuth.getCurrentUser().getDisplayName());
+                }
+            }
+        });
+    }
 // Doi Ten
 //    public void updateName(){
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
